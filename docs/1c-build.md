@@ -2,7 +2,7 @@
 
 ## Every Monday, a bot checks the key pages. People make the calls.
 
-A Claude scheduled task reads one Notion table, checks how fresh each key page is, reminds owners in Slack and suggests what to archive. It never changes what a page says.
+A Claude scheduled task reads one Notion table, checks how fresh each key page is, reminds owners in Slack and suggests what to archive. It never rewrites a page. It only updates the status line, adds owners' answers from Slack word for word, and archives what the admin approved.
 
 - **Wiki registry:** [Notion](https://app.notion.com/p/046c9b6acf9949ecaccebd31179332b4), one row per key page: owner, last review, status.
 - **Review queue:** [Notion](https://app.notion.com/p/596932576a4f4df388ffeaeb9349ea80), what the bot found. The admin decides.
@@ -25,7 +25,7 @@ A Claude scheduled task reads one Notion table, checks how fresh each key page i
 | Review | Counts days, sets the status, sends reminders with the open questions, reads ✅ and answers in Slack. | Owner checks the page and reacts ✅ in the reminder thread. Answers open questions in the same thread. About 10 minutes per page every 3 months. |
 | Duplicates | Finds pages on the same topic as a key page. | Topic owner says which page is valid. Once per duplicate. |
 | Archiving | Lists outdated pages and working docs. Archives what was approved. | Notion admin sets Archive, Keep or Move. A few minutes a week. |
-| Content | Never touches it. | Owner, with the wiki skill from Part 1b. |
+| Content | Never rewrites it. Adds only owners' answers from Slack, word for word. | Owner, with the wiki skill from Part 1b. |
 
 The status is never set by hand. ✅ only sets the date. Otherwise every page says "up to date" forever.
 

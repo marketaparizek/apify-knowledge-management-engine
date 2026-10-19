@@ -41,7 +41,7 @@ Step 0, then:
 | Open questions | Asks them in Slack, adds the owner's answer to the page word for word. | Owner answers in the thread. Folds the answer into the page at the next review. |
 | Duplicates | Finds pages on the same topic. | Topic owner says which page is valid. |
 | Archiving | Lists outdated pages, archives what was approved. | Notion admin sets Archive, Keep or Move. A few minutes a week. |
-| Content | Never touches it. | Owner, with the [wiki skill](../skills/apify-wiki). |
+| Content | Never rewrites it. Adds only owners' answers from Slack, word for word. | Owner, with the [wiki skill](../skills/apify-wiki). |
 
 The status is never set by hand. ✅ only sets the date. A page with open questions stays Needs review even after ✅.
 

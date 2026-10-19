@@ -17,7 +17,7 @@ I wrote down how a wiki page should look, built a Claude skill that rewrites pag
 
 ## What the skill fixes, and what it asks the owner
 
-The skill fixes what it can check in the wiki. Facts it can't check go to the page owner as a question. On Company that was 34 questions ([list](../evals/questions-for-owners.md)).
+The skill fixes what it can check in the wiki. Facts it can't check go to the page owner as a question. On Company that was 31 questions ([list](../evals/questions-for-owners.md)).
 
 | Problem | What the skill does | Fixes | Asks |
 |---|---|---|---|
