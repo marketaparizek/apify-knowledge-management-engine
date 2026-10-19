@@ -1,11 +1,67 @@
-# Review bot (Part 1c, in progress)
+# Review bot (Part 1c)
 
-Keeps core pages up to date after they are fixed.
+Keeps the key pages of the wiki true after they are fixed. Every Monday it checks how fresh each page is, reminds owners in Slack and suggests what to archive. It never changes what a page says. People make every decision.
 
-Design so far:
-- A registry database lists the core pages, with owner and last review date as properties. On Notion Plus, only database rows can have properties.
-- Every 3 months the bot sends the owner a Slack reminder, together with any open questions about the page.
-- The owner confirms "still true" in Slack. The bot sets the date and the status line. Nobody sets the status by hand.
-- No confirmation and the last review is older than 3 months: the bot sets ⚠️ Needs review.
-- Once a month the bot lists pages with no reads in 90 days and no edit in a year. The Notion admin approves the list, then the bot archives the pages.
-- The bot has its own account ("Wiki bot"), not a person's.
+It runs as a Claude scheduled task with the Notion and Slack connectors. The whole bot is one prompt: [wiki-bot-prompt.md](wiki-bot-prompt.md).
+
+## What it works with
+
+| Thing | Where | What it holds |
+|---|---|---|
+| Wiki registry | [Notion](https://app.notion.com/p/046c9b6acf9949ecaccebd31179332b4) | One row per key page: owner, Slack ID, last review, status, open questions. On Notion Plus, only database rows can have properties. |
+| Review queue | [Notion](https://app.notion.com/p/596932576a4f4df388ffeaeb9349ea80) | Pages the bot found: possible duplicates, stale pages, working docs. The Notion admin sets Archive, Keep or Move. |
+| #wiki-bot | Slack, private | The run log, for the people who run the wiki. |
+| Owner DMs | Slack | One message per owner, only about their own pages. |
+
+## What happens every Monday
+
+1. **Freshness check.** Reviewed in the last 90 days: ✅ Up to date. Older or never: ⚠️ Needs review. Updates the registry and the status line on the page.
+2. **Owner check.** If the owner's Slack account is gone, the page goes to the fallback owner until the team leader names someone.
+3. **Reminders.** One DM per owner, 7 days before the review is due, and one more when it's overdue. Never more. Open questions about the page go in the same message.
+4. **Duplicates and outdated pages.** Pages on the same topic as a key page, pages with no edit in 12 months, and 1:1s or meeting notes in General go to the review queue.
+5. **Decisions.** What the admin marked Archive gets archived: "Archived:" in the title, gray status line, moved under Archive. Old text stays.
+6. **Log.** What changed, who got a reminder, what failed.
+
+## The bot counts, people decide
+
+| Job | The bot | A person |
+|---|---|---|
+| Owner | Notices when an owner leaves. | Team leader names the owner. Once, a few minutes per team. |
+| Review | Counts days, sets the status, sends reminders. | Owner checks the page and presses "Mark as reviewed" in the registry. About 10 minutes per page every 3 months. |
+| Duplicates | Finds pages on the same topic. | Topic owner says which page is valid. |
+| Archiving | Lists outdated pages, archives what was approved. | Notion admin sets Archive, Keep or Move. A few minutes a week. |
+| Content | Never touches it. | Owner, with the [wiki skill](../skills/apify-wiki). |
+
+The status is never set by hand. The button only sets the date.
+
+Working docs and personal pages never count as a key page or as the valid version of a topic, even when they sit in General or have more views. The bot only lists them in the review queue.
+
+## Not automated, on purpose
+
+| What | Why not | When that changes |
+|---|---|---|
+| Choosing owners | It's a call about people. | Never. |
+| Archiving without a yes | Archiving the valid page costs more than one click. | Never. |
+| Picking the valid duplicate | Views don't decide: a draft can be read more than the real policy. | Never. |
+| Chasing owners who don't reply | In a pilot with 3 teams, I do it by hand and learn if it's needed. | If more than a few pages a month stay overdue. |
+| Filling the registry | About 30 pages, an hour, once. | After the pilot. |
+| Asking authors to move working docs | `created_by` changes when a page moves, so the bot can't tell who wrote a page. | If Notion shows a reliable author. |
+
+## Where it stops
+
+At 30 pages a week, a written checklist is enough, and anyone in the People team can change it. It won't scale to the whole company: the Notion connector returns about 50 results per search, and a model shouldn't count dates for 250 people. Before rollout, the same steps move into a code-based scheduler, for example Google Apps Script or GitHub Actions. Which one is a decision for after the pilot.
+
+## Set it up
+
+1. In the Wiki registry, add a Button property "Mark as reviewed" with the action Edit property → Last reviewed → Today. The API can't create buttons.
+2. Make #wiki-bot a private channel for the People team and the Notion admin.
+3. Create a Claude scheduled task, weekly on Monday, with the Notion and Slack connectors on. Paste [wiki-bot-prompt.md](wiki-bot-prompt.md) as the prompt.
+4. First run with `DRY_RUN = true`. Read the log. When it's right, set `DRY_RUN = false`.
+
+## Change it
+
+All rules sit in the Settings table at the top of the prompt: review cycle, reminder lead time, when a page counts as stale, which sections to scan, log channel, dry run. A change is one line.
+
+## Changes
+
+- **2026-10-19:** first version. Claude scheduled task instead of an Apify Actor, to keep it simple. Owners confirm with a button in the registry instead of a Slack reply, so the bot doesn't need to read Slack.

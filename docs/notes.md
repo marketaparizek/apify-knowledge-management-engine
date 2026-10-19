@@ -26,6 +26,10 @@
 
 ## Test workspace vs the real setup
 
-- The test workspace has no General teamspace, so search runs on the whole workspace. In the real setup the skill searches General only, and personal pages drop out.
+- In the test workspace, the HQ teamspace stands in for General. Company and all wiki pages sit there.
+- Two pages under Company copy the mess of the real wiki on purpose: "Personal pages (test setup)" and "Team working docs (test setup)". At Apify, both kinds sit in General. The skill and the bot have to skip them as answers and list them, and the test shows they do.
+- Limiting search to General isn't enough at Apify: 51 working docs sit inside General. So the skill and the bot also skip working docs and personal pages by title and path, and list them instead.
 - Two pages linked from Company ("How we work" and "Apify brand essentials") live outside the test workspace. A person opens them in the browser, Claude gets a 404 through the connector.
 - Notion comments can't be resolved or deleted through the connector on Plus. That's why open questions go to owners in Slack, not into comments.
+- The review bot runs as a Claude scheduled task under my account, so owner DMs come from me. In production it gets its own Slack and Notion account.
+- The Slack workspace is a test workspace created for the demo.

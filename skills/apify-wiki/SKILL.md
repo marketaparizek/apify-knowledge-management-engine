@@ -13,9 +13,9 @@ The rules live in `references/page-standard.md`, a copy of the Notion page "How 
 
 Fill these in once per workspace.
 
-- `REGISTRY_DATA_SOURCE`: the review bot's database of core pages (collection:// URL). Not set yet: it is built in Part 1c. While empty, skip step 1 of the search order.
+- `REGISTRY_DATA_SOURCE`: the Wiki registry, the review bot's database of core pages: collection://79fb0939-3018-48e5-a3cb-dfb6163edf4f
 - `KNOWLEDGE_OWNER`: Markéta Pařízek, People team (Slack: @marketa). Owns hub pages and the standard, and is the fallback owner when a team hasn't named one.
-- `GENERAL_TEAMSPACE_ID`: the General teamspace. Not set in the test workspace: it has no personal pages to filter out. While empty, search the whole workspace.
+- `GENERAL_TEAMSPACE_ID`: the General teamspace: 3feab6e4-e963-8133-b2bd-00424a851989 (in the test workspace, the HQ teamspace stands in for General).
 
 ## Two modes
 
@@ -32,6 +32,19 @@ Use this order every time the skill searches the wiki (duplicate check, finding 
 2. General (`teamspace_id = GENERAL_TEAMSPACE_ID`).
 3. The Archive page and everything under it, last. Use an archived page only when nothing above answers the question, and say so in the answer: "This comes from an archived page, replaced by [page] on [date]."
 4. Never personal spaces. If the only match is in someone's personal space, say so and ask whether it should move to General.
+
+## What never counts as an answer
+
+General itself isn't clean. Working docs sit there too. Even when search returns them, never use these as the answer, as a source for a fact, or as the page to keep:
+
+- **Working docs:** 1:1 notes, meeting notes, retros, standups, plans, project notes, drafts, WIP. Spot them by title (for example "1:1", "Meeting notes", "Retro", "Plan Q3", "project notes", "Notes", "Untitled", "draft") or by a path through a team's notes area.
+- **Personal pages:** anything in someone's personal space, even when it has more views than the wiki page.
+
+The paths that mark both are in `references/config.md`.
+
+When one of these is the only match, say so: "The only page on this is a working doc / a personal page: [page]. It isn't part of the wiki." Then suggest moving the content into a wiki page with this skill.
+
+Report them, don't ignore them: in review mode, list them under "Problems found" with the page link, so the person can move or archive them. A working doc in General goes into the Review queue as "Working doc". A personal page on the same topic as a wiki page goes in as "Possible duplicate".
 
 Archived pages have a title that starts with "Archived:", show "Company / Archive" in their path and start with a gray 🗄️ status line. Treat them as history, never as the current answer.
 
@@ -76,6 +89,8 @@ Up to date · Owner: Full Name, Team (Slack: @handle) · Last reviewed: YYYY-MM-
 A page nobody has checked yet: `Needs review · Owner: Full Name, Team (Slack: @handle) · Last reviewed: not yet`.
 
 An archived page: `Archived · Replaced by: <mention-page> · Archived: YYYY-MM-DD`, and a second line in the same callout: "This page is out of date. Use the page that replaced it." Never use the word "current" in this line: keyword search matches it to every "current X" question.
+
+An outdated page that nothing replaced: `Archived · No replacement · Archived: YYYY-MM-DD`, and a second line: "This page is out of date. Ask the People team before you use it."
 
 Archiving never deletes text. Add "Archived: " to the start of the title (once, check it isn't there already), add the archived callout at the top, keep the old text under it, and move the page under the Archive page. Delete plain-text pointers like "see X instead": the callout already links the replacement.
 

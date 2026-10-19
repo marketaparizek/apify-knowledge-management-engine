@@ -1,6 +1,6 @@
 # How to write a page in the Apify wiki
 
-Copy of the Notion page https://app.notion.com/p/214ab6e4e96382a0a92e819d3eb0d1be (2026-10-19, v2). When the Notion page changes, copy it here again.
+Copy of the Notion page https://app.notion.com/p/214ab6e4e96382a0a92e819d3eb0d1be (2026-10-19, v5). When the Notion page changes, copy it here again.
 
 **Brief summary.** Every page in General, the Notion teamspace every Apifier can see, covers one topic, shows whether it is up to date and who owns it, and works for both people and Claude. Claude finds pages by keyword search and reads one page at a time, so the title and this summary decide whether a page gets found. Core pages, the roughly 30 most-read pages, also get a named owner and a review every 3 months.
 
@@ -9,7 +9,7 @@ Copy of the Notion page https://app.notion.com/p/214ab6e4e96382a0a92e819d3eb0d1b
 - **Hub page.** The entry page for an area, like Company or Office. It has a status line and a brief summary, then its subpages grouped under H2 headings by topic. Titles only, no description next to each link. If a title doesn't tell the reader what's on the page, rename the subpage, don't add text to the hub.
 - **Content page.** Answers one group of questions, like business travel. Most pages are this type. A content page sits at most two levels below a hub page.
 - **Link page.** Summarises a document that lives in GitHub or Google Drive and links to it. If the link page and the source differ, the source is right.
-- **Archived page.** A page that another page replaced. It moves under the Archive page and keeps its old text. Its title starts with "Archived:", so people and Claude see it in search results without opening the page. A gray 🗄️ status line at the top says which page replaced it and when. Claude looks in archived pages last, and when it answers from one, it says so.
+- **Archived page.** A page that another page replaced, or that is out of date and nothing replaced. It moves under the Archive page and keeps its old text. Its title starts with "Archived:", so people and Claude see it in search results without opening the page. A gray 🗄️ status line at the top says which page replaced it and when. Claude looks in archived pages last, and when it answers from one, it says so.
 
 ## How a page is built, top to bottom
 
@@ -17,8 +17,8 @@ Copy of the Notion page https://app.notion.com/p/214ab6e4e96382a0a92e819d3eb0d1b
 2. **Status line.** A callout right under the title. Its emoji shows the status. The page icon stays free for the topic of the page.
    - ✅ Up to date: reviewed in the last 3 months
    - ⚠️ Needs review: the last review is older than 3 months
-   - 🗄️ Archived: another page replaced this one
-   A page nobody has checked yet says "Last reviewed: not yet" and stays ⚠️ Needs review. An archived page says "Archived · Replaced by: [page] · Archived: YYYY-MM-DD" and, on a second line, "This page is out of date. Use the page that replaced it." Don't use the word "current" there: keyword search would match it to every question about what is current.
+   - 🗄️ Archived: another page replaced this one, or the page is out of date and nothing replaced it
+   A page nobody has checked yet says "Last reviewed: not yet" and stays ⚠️ Needs review. An archived page says "Archived · Replaced by: [page] · Archived: YYYY-MM-DD" and, on a second line, "This page is out of date. Use the page that replaced it." Don't use the word "current" there: keyword search would match it to every question about what is current. An outdated page that nothing replaced says "Archived · No replacement · Archived: YYYY-MM-DD" and "This page is out of date. Ask the People team before you use it."
    The wiki skill adds the status line when it creates a page. After that, only the review bot changes it. Format: `Up to date · Owner: Full Name, Team (Slack: @handle) · Last reviewed: YYYY-MM-DD`
 3. **Brief summary.** A callout with 2 or 3 sentences that answer the main question. A reader who stops here still has the right answer. If a rule applies only to some people, say who.
 4. **On this page.** Only on content pages with 4 or more sections, never on hub pages. Bold "On this page" label and the table of contents block. H2 headings only.
@@ -55,11 +55,14 @@ Copy of the Notion page https://app.notion.com/p/214ab6e4e96382a0a92e819d3eb0d1b
 
 - **1:1 notes** go to your Private section, shared with the other person only.
 - **Team meeting notes, retros and plans** go on one page in your team's area, with access limited to your team.
+- **Time-limited pages,** like a pilot or a company-wide project, can go in General when the whole company needs them. Put the end date in the brief summary. When it ends, the owner adds the results to the page. Later the owner archives it through the Review queue.
+- **The wiki skill and the review bot never use working docs or personal pages as an answer,** even when search finds them. They list them, so they can be moved out of General.
 
 ## Reviews
 
-- Every 3 months, the owner of a core page gets a Slack reminder from the review bot.
-- The owner fixes what changed and confirms in Slack, even when nothing changed.
-- After the owner confirms, the review bot updates "Last reviewed" and sets ✅ Up to date.
-- If the owner doesn't confirm and the last review is older than 3 months, the bot sets ⚠️ Needs review.
+- Every core page has a row in the Wiki registry (https://app.notion.com/p/046c9b6acf9949ecaccebd31179332b4) with its owner and the date of the last review.
+- The review bot runs every Monday. 7 days before a review is due, the owner gets a Slack message with a link to the page and any open questions. If the review is overdue, the owner gets one more message.
+- The owner fixes what changed and presses "Mark as reviewed" on the page's row in the registry, even when nothing changed.
+- On its next run, the review bot sets the status to ✅ Up to date. If the last review is older than 3 months, it sets ⚠️ Needs review.
+- The review bot also lists possible duplicates, pages with no edit in 12 months and working docs in the Review queue (https://app.notion.com/p/596932576a4f4df388ffeaeb9349ea80). The Notion admin decides what gets archived.
 - Before you leave Apify or change teams, hand your pages to a new owner.
