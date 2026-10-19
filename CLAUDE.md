@@ -49,6 +49,7 @@ Debrief: 15 min walkthrough, 15 min live change to the automation, 30 min role p
 - Company hub: https://app.notion.com/p/dcdab6e4e9638394b69e8124566358a4
 - Page standard: https://app.notion.com/p/214ab6e4e96382a0a92e819d3eb0d1be
 - Archive: https://app.notion.com/p/3feab6e4e963815cb308c24aff1f9741
+- Wiki admin (holds the two tables below): https://app.notion.com/p/3feab6e4e9638118babfc0456d1bd129
 - Wiki registry: https://app.notion.com/p/046c9b6acf9949ecaccebd31179332b4 (collection://79fb0939-3018-48e5-a3cb-dfb6163edf4f)
 - Review queue: https://app.notion.com/p/596932576a4f4df388ffeaeb9349ea80 (collection://c5c3ae49-d341-4bc4-a683-5d6e0edaa197)
 - Slack test workspace, log channel #wiki-bot (C0CAD3CLQGZ)

@@ -1,12 +1,12 @@
 # How to write a page in the Apify wiki
 
-Copy of the Notion page https://app.notion.com/p/214ab6e4e96382a0a92e819d3eb0d1be (2026-10-19, v5). When the Notion page changes, copy it here again.
+Copy of the Notion page https://app.notion.com/p/214ab6e4e96382a0a92e819d3eb0d1be (2026-10-19, v6). When the Notion page changes, copy it here again.
 
 **Brief summary.** Every page in General, the Notion teamspace every Apifier can see, covers one topic, shows whether it is up to date and who owns it, and works for both people and Claude. Claude finds pages by keyword search and reads one page at a time, so the title and this summary decide whether a page gets found. Core pages, the roughly 30 most-read pages, also get a named owner and a review every 3 months.
 
 ## Four types of pages
 
-- **Hub page.** The entry page for an area, like Company or Office. It has a status line and a brief summary, then its subpages grouped under H2 headings by topic. Titles only, no description next to each link. If a title doesn't tell the reader what's on the page, rename the subpage, don't add text to the hub.
+- **Hub page.** The entry page for an area, like Company or Office. It has a status line and a brief summary, then its subpages grouped under H2 headings by topic. Under each heading, one sentence says what the section answers, so the hub isn't a bare list of links and keyword search lands on it too. Next to the links, titles only. If a title doesn't tell the reader what's on the page, rename the subpage, don't add text to the hub.
 - **Content page.** Answers one group of questions, like business travel. Most pages are this type. A content page sits at most two levels below a hub page.
 - **Link page.** Summarises a document that lives in GitHub or Google Drive and links to it. If the link page and the source differ, the source is right.
 - **Archived page.** A page that another page replaced, or that is out of date and nothing replaced. It moves under the Archive page and keeps its old text. Its title starts with "Archived:", so people and Claude see it in search results without opening the page. A gray 🗄️ status line at the top says which page replaced it and when. Claude looks in archived pages last, and when it answers from one, it says so.
