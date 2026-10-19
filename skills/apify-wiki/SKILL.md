@@ -69,7 +69,7 @@ Search is keyword only and returns about 50 results. Run 3 to 4 short searches w
 - "On this page" label and table of contents only on content pages with 4+ H2 sections. Never on hub pages. H2 only, no emoji in headings.
 - Every section makes sense on its own.
 - One topic emoji as page icon, never a status emoji. Cover only on hub pages (the Apify pattern). Callouts only for status, brief summary and reader warnings.
-- Hub page: status line, brief summary, then subpages as `<page>` blocks grouped under H2 headings. One lead sentence under each H2, then the links, titles only. Pages that aren't subpages go in as `<mention-page/>` on their own line. No archived pages in the groups, only the Archive page.
+- Hub page: status line, brief summary, then subpages as `<page>` blocks grouped under H2 headings. One lead sentence under each H2, then the links, titles only. 4 or more sections go in two `<columns>` of equal ratio. Test-setup notes and the case study warning sit at the bottom, after the content. Pages that aren't subpages go in as `<mention-page/>` on their own line. No archived pages in the groups, only the Archive page.
 - Hub page titles: if a subpage title doesn't say what's on the page, list it under "Decisions needed" as a rename for that subpage. Don't fix it with text on the hub.
 - No `[TO CONFIRM]` left in the published text, and no questions in Notion comments.
 - Links are Notion mentions, never "see the X page" in plain text.

@@ -31,7 +31,7 @@ To change how pages look, edit the standard, not `SKILL.md`.
 
 ## Changes
 
-- **v6 (2026-10-19):** hub pages get one lead sentence under each H2 heading. The 1a diagnosis called Office and Engineering "bare lists of links", and v5 made every hub exactly that. Applied to Company. Wiki registry and Review queue moved under a "Wiki admin" subpage, so the hub shows only what readers need.
+- **v6 (2026-10-19):** hub pages get one lead sentence under each H2 heading. The 1a diagnosis called Office and Engineering "bare lists of links", and v5 made every hub exactly that. Hubs with 4+ sections use two columns, so the hub fits on one screen. Applied to Company. Wiki registry and Review queue moved under a "Wiki admin" subpage, so the hub shows only what readers need.
 - **v5 (2026-10-19):** standard copy updated from Notion: time-limited pages (a pilot, a company-wide project) may sit in General with an end date in the brief summary, and get archived through the Review queue when they end. Needed for the "Notion wiki pilot" page.
 - **v4 (2026-10-19):** working docs and personal pages never count as an answer, even inside General. The skill reports them instead. Search is limited to the General teamspace, and step 1 of the search order uses the Wiki registry.
 - **v3 (2026-10-19):** archived pages can have no replacement ("Archived · No replacement"). The review bot archives stale pages that nothing replaced, and the standard had no line for them. Reviews section rewritten for the review bot: owners press "Mark as reviewed" in the Wiki registry instead of confirming in Slack.
