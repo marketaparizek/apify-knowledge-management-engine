@@ -49,14 +49,27 @@ Working docs and personal pages never count as a key page or as the valid versio
 
 ## Not automated, on purpose
 
-| What | Why not | When that changes |
+The bot counts dates, sends reminders and lists pages. People decide, and people write.
+
+### Never automated
+
+| What | Who does it instead | Why not the bot |
 |---|---|---|
-| Choosing owners | It's a call about people. | Never. |
-| Archiving without a yes | Archiving the valid page costs more than one click. | Never. |
-| Picking the valid duplicate | Views don't decide: a draft can be read more than the real policy. | Never. |
-| Chasing owners who don't reply | In a pilot with 3 teams, I do it by hand and learn if it's needed. | If more than a few pages a month stay overdue. |
-| Filling the registry | About 30 pages, an hour, once. | After the pilot. |
-| Asking authors to move working docs | `created_by` changes when a page moves, so the bot can't tell who wrote a page. | If Notion shows a reliable author. |
+| Writing page content | The page owner. The wiki skill only drafts, and a person approves every page. | AI as the main author would fill the wiki with AI slop that nobody owns or checks. |
+| Choosing owners | The team leader names one owner per key page. A few minutes per team, once. | Knowing who understands a topic is a judgement about people. Slack and Notion data can't tell it. |
+| Archiving without a yes | The Notion admin sets Archive, Keep or Move on each row of the Review queue. A few minutes a week. | If the bot archived the valid page, people would lose the right answer. One click from the admin costs less than that mistake. |
+| Picking the valid duplicate | The owner of the topic says which page is right, once per duplicate. | Views don't show which page is right. The personal copy of Brand guidelines has 410 views, the Marketing one 138. |
+
+### Planned for company scale
+
+Done by hand in the pilot. These are the next steps once the wiki grows past the pilot teams.
+
+| What | Who does it now | Why by hand for now | When |
+|---|---|---|---|
+| Chasing owners who don't reply | I follow up by hand during the pilot. | With three teams I can see how often it happens before building anything for it. | If more than a few pages a month stay overdue. |
+| Picking key pages | The triage picks them from a views export, about 30 key pages for the pilot. The People team imports that list and each team leader confirms the owner. | Page views aren't in the Notion API, so the bot can't tell which pages people read most. | When views can be exported on a schedule, the import can run every month. |
+| Turning Slack threads into pages | The page owner, with the wiki skill. It turns a Slack thread into a page draft, and the owner approves it. | The bot only reads its own reminder threads. Deciding which other thread holds a decision, and which page it belongs to, is a call about content. | If the pilot shows that answers keep living only in Slack threads. |
+| Asking authors to move working docs | The People team asks them. | `created_by` changes when a page moves, so the bot can't tell who wrote a page. | If Notion shows a reliable author. |
 
 ## Where it stops
 
