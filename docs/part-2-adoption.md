@@ -10,7 +10,7 @@ Three Slack replies, the pilot plan and the #general announcement.
 
 Fair, I wouldn't want another set of docs to maintain either. GitHub stays the source, but most people outside Engineering don't know their way around it. We need one place for shared company knowledge, and right now that's Notion.
 
-Let's figure out how to make this work with as little input from your team as possible. Ideally, automation finds relevant content in GitHub and keeps the Notion summaries updated. Someone in Engineering just curates what gets shared.
+Let's figure out how to make this work with as little input from your team as possible. The point is to follow how information already flows here, not to rebuild it. A rebuild would die anyway. For the docs other teams need, a short Notion summary links to the GitHub file. Someone in Engineering only picks what gets shared. If you want the summaries to update on their own, we can add that.
 
 I think a bit of time setting this up properly could keep the ongoing work minimal. I'll DM you to find 30 minutes for it.
 
@@ -30,9 +30,9 @@ The point is to make your team's work easier, not add to it. Before we talk, thi
 
 I'd keep expectations a bit lower for the first month. We can get a working version in place for the pages people use most. The whole knowledge base will take longer.
 
-I'd start with a few teams before opening it up to everyone. We need to understand how information actually moves around here. Giving everyone access without the context could just make the confusion more accessible.
+I'd start with a few teams before opening it up to everyone. We need to understand how information moves around here. Today a basic question gets the right answer about 3 times in 10. If we roll out before we know what fixes that, we spread the same mess faster.
 
-Let's see if those teams find answers faster and need to ask colleagues on Slack less often. In early December, I can show you what's actually changed, and we can decide together where to go next.
+Let's see if Claude gets those teams' questions right much more often than today. In early December, I can show you what changed, and we can decide together where to go next.
 
 ## Pilot plan
 
@@ -44,7 +44,7 @@ The plan lives in Notion as a page everyone can read: [Notion wiki pilot](https:
 
 A lot of us now ask Claude before asking a colleague. Claude looks in Notion, so its answers depend on what it finds there.
 
-In October 2026, Claude got 4 out of 10 common questions right. Outdated pages, duplicates and meeting notes got in the way. Business travel alone has four pages with different daily allowances.
+In a test copy of our wiki in October 2026, Claude got 4 out of 10 common questions right. Outdated pages, duplicates and meeting notes got in the way. Business travel alone has four pages with three different daily allowances.
 
 Claude doesn't sound any less sure when it quotes an old page. We need to make it clear which page to trust, who looks after it and when it was last reviewed.
 
@@ -61,7 +61,7 @@ The full rules are in [How to write a page in the Apify wiki](https://app.notion
 🧭 **Team leaders** choose one owner for each key page and help decide which version to keep when there are duplicates. We aim to keep this under an hour per leader across the six weeks.
 ✍️ **Page owners** help check the facts during the cleanup. After that, they get a Slack reminder every 3 months, check the page and react ✅ in Slack. Open questions get answered in the same thread. No need to open Notion for it.
 🤝 **The People team** runs the cleanup, coordinated by Markéta Pařízek. We use the wiki skill to help rewrite pages, merge duplicates, move 1:1s and meeting notes out of General, and set up the review reminders.
-🛠️ **Engineering** keeps GitHub as the source for technical docs. For selected docs that other teams need, we add a short Notion summary with a link to the original. The summary updates when the GitHub file changes.
+🛠️ **Engineering** keeps GitHub as the source for technical docs. For selected docs that other teams need, we add a short Notion summary with a link to the original. If Engineering wants it, the summary can update on its own when the GitHub file changes.
 
 ### 🎯 Why these three teams
 
@@ -71,7 +71,7 @@ The full rules are in [How to write a page in the Apify wiki](https://app.notion
 
 ### 🤖 Where automation helps
 
-We automate review reminders, the status line at the top of each page, and Notion summaries for selected GitHub docs.
+We automate review reminders and the status line at the top of each page. Updating summaries from GitHub on their own can come later, if Engineering asks for it.
 
 People still make the decisions.
 - The wiki skill prepares a draft. A person reviews it before it's published.
@@ -88,7 +88,7 @@ We don't copy full technical docs into Notion.
 
 ### 📊 What we'll check on 4 December 2026
 
-- Claude answers at least 8 out of 10 real questions correctly.
+- Claude answers at least 24 of the 30 real questions we collect in the first week correctly.
 - Every key page across the three teams has a named owner.
 - At least 80% of owners respond to a review reminder within 5 working days.
 - No duplicates, 1:1s or meeting notes remain in the three teams' wiki sections.
