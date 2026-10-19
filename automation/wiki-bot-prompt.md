@@ -81,7 +81,7 @@ For every registry row where Status is not Archived:
    Otherwise it is Needs review. Empty Last reviewed means "Last reviewed: not yet".
 2. If Status in the registry is different, update it.
 3. Work out the owner part of the status line from the registry, not from the page: `Owner: <full name of the person in Owner>, <team> (Slack: @<handle>)`. Take the handle and the team from the Slack profile of Owner Slack ID (team = the profile's title or department, otherwise the row's Team property followed by " team"). This way a new owner set in the registry shows up on the page.
-4. Open the page. Find the status callout right under the title. It starts with "Up to date", "Needs review" or "Archived". Replace the whole callout with:
+4. Open the page. Find the status callout, usually right under the title (on Company it sits under the summary and the vision). It starts with "Up to date", "Needs review" or "Archived". Replace the whole callout with:
    - Up to date: `<callout icon="✅" color="green_bg">Up to date · <owner part> · Last reviewed: YYYY-MM-DD</callout>`
    - Needs review: `<callout icon="⚠️" color="orange_bg">Needs review · <owner part> · Last reviewed: YYYY-MM-DD or not yet</callout>`
 5. If the callout already matches, change nothing. If there is no status callout, don't add one. Write "Status line not found" in Bot note.

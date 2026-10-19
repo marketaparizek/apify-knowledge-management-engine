@@ -6,7 +6,7 @@ Copy of the Notion page https://app.notion.com/p/214ab6e4e96382a0a92e819d3eb0d1b
 
 ## 🗂️ Four types of pages
 
-- **Hub page.** The entry page for an area, like Company or Office. It has a status line and a brief summary, then its subpages grouped under H2 headings by topic. A hub has two columns. The left column (a bit under half the width) is the navigation: H3 group labels, the subpages under each, a divider between groups, titles only. The wide right column holds the brief summary as a plain paragraph starting with bold "Brief summary.". Links that lead outside the workspace don't go on a hub. The wiki home page (Company) is the one hub with more: the vision as a quote, then three callouts. "New at Apify? Start here" (blue) lists up to 3 pages to read first. "What's new" (gray) lists dated changes, newest first, each with a link to the page that has the details. "Can't find something?" (gray) says who to ask. The People team keeps "What's new" current. Other hubs don't get these, because nobody would keep ten news lists true. If a title doesn't tell the reader what's on the page, rename the subpage, don't add text to the hub.
+- **Hub page.** The entry page for an area, like Company or Office. It has a status line and a brief summary, then its subpages grouped under H2 headings by topic. A hub has two columns. The left column (a bit under half the width) is the navigation: H3 group labels, the subpages under each, a divider between groups, titles only. The wide right column holds the brief summary as a plain paragraph starting with bold "Brief summary.". Links that lead outside the workspace don't go on a hub. The wiki home page (Company) is the one hub with more. It opens with the brief summary, then the vision in a blue callout with the Apify logo, then the status line. The right column has two gray callouts. "What's new" comes first and lists dated changes, newest first, each with a link to the page that has the details. "New at Apify? Start here" lists up to 3 pages to read first. The People team keeps "What's new" current. Other hubs don't get these, because nobody would keep ten news lists true. If a title doesn't tell the reader what's on the page, rename the subpage, don't add text to the hub.
 - **Content page.** Answers one group of questions, like business travel. Most pages are this type. A content page sits at most two levels below a hub page.
 - **Link page.** Summarises a document that lives in GitHub or Google Drive and links to it. If the link page and the source differ, the source is right.
 - **Archived page.** A page that another page replaced, or that is out of date and nothing replaced. It moves under the Archive page and keeps its old text. Its title starts with "Archived:", so people and Claude see it in search results without opening the page. A gray 🗄️ status line at the top says which page replaced it and when. Claude looks in archived pages last, and when it answers from one, it says so.
@@ -14,7 +14,7 @@ Copy of the Notion page https://app.notion.com/p/214ab6e4e96382a0a92e819d3eb0d1b
 ## 🧱 How a page is built, top to bottom
 
 1. **Title.** Use the words people type when they search. ✓ How to get an invoice approved. ✗ Invoices v2 FINAL. If people know the page by an old name, add one line under the title, like "Formerly called SOP."
-2. **Status line.** A callout right under the title. Its emoji shows the status. The page icon stays free for the topic of the page.
+2. **Status line.** A callout right under the title (on the wiki home page, under the summary and the vision). Its emoji shows the status. The page icon stays free for the topic of the page.
    - ✅ Up to date: reviewed in the last 3 months
    - ⚠️ Needs review: the last review is older than 3 months
    - 🗄️ Archived: another page replaced this one, or the page is out of date and nothing replaced it
@@ -40,9 +40,9 @@ Copy of the Notion page https://app.notion.com/p/214ab6e4e96382a0a92e819d3eb0d1b
 
 ## 🎨 Icons, covers and callouts
 
-- **Icon.** Every page has one gray Notion icon for its topic, like the airplane for travel (Notion icon picker, Icons tab, gray). Colour emoji make a hub look busy. Never ✅, ⚠️ or 🗄️, because those show the status. The icon shows in the sidebar, in search results and in every link, so it helps people spot the page.
+- **Icon.** Every page has one emoji for its topic, like ✈️ for travel. Never ✅, ⚠️ or 🗄️, because those show the status. The icon shows in the sidebar, in search results and in every link, so it helps people spot the page.
 - **Cover.** Only hub pages have a cover, and all hubs use the same Apify pattern. Content pages have no cover, because it pushes the answer one screen down.
-- **Callouts.** Use them for three things only: the status line, the brief summary, and a warning that applies to the reader. The wiki home page adds its three reader callouts (see Hub page). Not for decoration or quotes. The one exception is a blue 💬 "Added by the owner" callout from the review bot, which stays until the owner folds the answer into the text.
+- **Callouts.** Use them for three things only: the status line, the brief summary, and a warning that applies to the reader. The wiki home page adds the vision and two reader callouts (see Hub page). Not for decoration or quotes. The one exception is a blue 💬 "Added by the owner" callout from the review bot, which stays until the owner folds the answer into the text.
 
 ## 🎯 One topic, one page
 
