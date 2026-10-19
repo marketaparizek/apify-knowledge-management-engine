@@ -2,12 +2,7 @@
 
 ## Time spent
 
-| Part | Hours |
-|---|---|
-| 1a Diagnose | [fill in] |
-| 1b Fix | [fill in] |
-| 1c Build | [fill in] |
-| 2 Adoption | [fill in] |
+About 3 hours in total, across all four parts.
 
 ## AI tools and why
 
@@ -15,7 +10,6 @@
 - **Claude with the Notion connector.** Reads and edits the test pages, and runs the before and after test the same way an Apifier's Claude would.
 - **The apify-wiki skill.** Built here, used to fix the Company subpages. Every rewrite was checked by hand, and mistakes went back into the rules.
 - **no-ai-slop skill.** An editing pass on every page and deliverable.
-- [fill in: anything else]
 
 ## Assumptions
 
