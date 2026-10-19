@@ -12,7 +12,7 @@ A Claude scheduled task reads one Notion table, checks how fresh each key page i
 
 1. **Checks how fresh each page is.** Reviewed in the last 90 days and no open questions: up to date. Otherwise: needs review. Updates the status line on the page.
 2. **Checks the owner is still here.** Owner's Slack account is gone: the page goes to the People team until the team leader names someone.
-3. **Reminds owners.** One direct message per owner, 7 days before the review is due, and one more if it's overdue. Never more. The message says why it arrives and what to do in three steps. Open questions go in the thread.
+3. **Reminds owners.** One direct message per owner, 7 days before the review is due, and one more if it's overdue. Never more. The message says why it arrives and what to do in three steps. Each page gets a reply in the thread with its open questions. The owner reacts ✅ or answers there. A short daily run reads the replies, adds answers to the page and turns the status green the next morning. Owners never open the registry.
 4. **Finds duplicates and outdated pages.** Pages with the same topic as a key page, pages with no edit in 12 months, and 1:1s or meeting notes in General.
 5. **Carries out decisions.** What the admin marked "Archive" gets archived: title prefix, gray status line, moved under Archive. Old text stays.
 6. **Writes the log.** What changed, who got a reminder, what failed. In a private channel.
@@ -22,12 +22,12 @@ A Claude scheduled task reads one Notion table, checks how fresh each key page i
 | Job | The bot | A person |
 |---|---|---|
 | Owner | Notices when an owner leaves and hands the page to the People team. | Team leader names the owner. Once, a few minutes per team. |
-| Review | Counts days, sets the status, sends reminders with the open questions. | Owner checks the page and presses "Mark as reviewed". About 10 minutes per page every 3 months. |
+| Review | Counts days, sets the status, sends reminders with the open questions, reads ✅ and answers in Slack. | Owner checks the page and reacts ✅ in the reminder thread. Answers open questions in the same thread. About 10 minutes per page every 3 months. |
 | Duplicates | Finds pages on the same topic as a key page. | Topic owner says which page is valid. Once per duplicate. |
 | Archiving | Lists outdated pages and working docs. Archives what was approved. | Notion admin sets Archive, Keep or Move. A few minutes a week. |
 | Content | Never touches it. | Owner, with the wiki skill from Part 1b. |
 
-The status is never set by hand. The button only sets the date. Otherwise every page says "up to date" forever.
+The status is never set by hand. ✅ only sets the date. Otherwise every page says "up to date" forever.
 
 ## Who sees what
 

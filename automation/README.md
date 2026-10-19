@@ -1,6 +1,8 @@
 # Review bot (Part 1c)
 
-Keeps the key pages of the wiki true after they are fixed. Every Monday it checks how fresh each page is, reminds owners in Slack and suggests what to archive. It never changes what a page says. People make every decision.
+Keeps the key pages of the wiki true after they are fixed. Every Monday it checks how fresh each page is, reminds owners in Slack and suggests what to archive. Every working day it reads what owners answered in Slack. It never changes what a page says on its own. People make every decision.
+
+Owners do the whole review in Slack. They never open the registry.
 
 It runs as a Claude scheduled task with the Notion and Slack connectors. The whole bot is one prompt: [wiki-bot-prompt.md](wiki-bot-prompt.md).
 
@@ -8,16 +10,24 @@ It runs as a Claude scheduled task with the Notion and Slack connectors. The who
 
 | Thing | Where | What it holds |
 |---|---|---|
-| Wiki registry | [Notion](https://app.notion.com/p/046c9b6acf9949ecaccebd31179332b4) | One row per key page: owner, Slack ID, last review, status, open questions. On Notion Plus, only database rows can have properties. |
+| Wiki registry | [Notion](https://app.notion.com/p/046c9b6acf9949ecaccebd31179332b4) | One row per key page: owner, Slack ID, last review, status, open questions, the Slack thread of the last reminder. On Notion Plus, only database rows can have properties. |
 | Review queue | [Notion](https://app.notion.com/p/596932576a4f4df388ffeaeb9349ea80) | Pages the bot found: possible duplicates, stale pages, working docs. The Notion admin sets Archive, Keep or Move. |
 | #wiki-bot | Slack, private | The run log, for the people who run the wiki. |
-| Owner DMs | Slack | One message per owner, only about their own pages. |
+| Owner DMs | Slack | One message per owner, only about their own pages. Owners answer in its thread. |
+
+## What happens every working day
+
+0. **Owner replies.** Reads the threads of the reminder DMs. ✅ on a page's reply means "still true": the bot sets Last reviewed to today and the page turns Up to date the same day. A reply like "3: Tomáš Kovář" answers an open question: the bot adds it to the page as an "Added by the owner" block, word for word, and closes the question. If it can't tell which question an answer belongs to, it asks in the thread and writes nothing.
+
+The log goes to #wiki-bot only when something changed.
 
 ## What happens every Monday
 
+Step 0, then:
+
 1. **Freshness check.** Reviewed in the last 90 days and no open questions: ✅ Up to date. Otherwise: ⚠️ Needs review. Updates the registry and the status line on the page.
 2. **Owner check.** If the owner's Slack account is gone, the page goes to the fallback owner until the team leader names someone.
-3. **Reminders.** One DM per owner, 7 days before the review is due, and one more when it's overdue. Never more. Open questions about the page go in the same message.
+3. **Reminders.** One DM per owner, 7 days before the review is due, and one more when it's overdue. Never more. Pages are numbered. Each page gets its own reply in the thread, with its open questions, so the owner can react ✅ to it or answer under it.
 4. **Duplicates and outdated pages.** Pages on the same topic as a key page, pages with no edit in 12 months, and 1:1s or meeting notes in General go to the review queue.
 5. **Decisions.** What the admin marked Archive gets archived: "Archived:" in the title, gray status line, moved under Archive. Old text stays.
 6. **Log.** What changed, who got a reminder, what failed.
@@ -27,12 +37,13 @@ It runs as a Claude scheduled task with the Notion and Slack connectors. The who
 | Job | The bot | A person |
 |---|---|---|
 | Owner | Notices when an owner leaves. | Team leader names the owner. Once, a few minutes per team. |
-| Review | Counts days, sets the status, sends reminders. | Owner checks the page and presses "Mark as reviewed" in the registry. About 10 minutes per page every 3 months. |
+| Review | Counts days, sets the status, sends reminders, reads ✅ and answers in Slack. | Owner checks the page and reacts ✅ in the reminder thread. About 10 minutes per page every 3 months. |
+| Open questions | Asks them in Slack, adds the owner's answer to the page word for word. | Owner answers in the thread. Folds the answer into the page at the next review. |
 | Duplicates | Finds pages on the same topic. | Topic owner says which page is valid. |
 | Archiving | Lists outdated pages, archives what was approved. | Notion admin sets Archive, Keep or Move. A few minutes a week. |
 | Content | Never touches it. | Owner, with the [wiki skill](../skills/apify-wiki). |
 
-The status is never set by hand. The button only sets the date.
+The status is never set by hand. ✅ only sets the date. A page with open questions stays Needs review even after ✅.
 
 Working docs and personal pages never count as a key page or as the valid version of a topic, even when they sit in General or have more views. The bot only lists them in the review queue.
 
@@ -53,9 +64,9 @@ At 30 pages a week, a written checklist is enough, and anyone in the People team
 
 ## Set it up
 
-1. In the Wiki registry, add a Button property "Mark as reviewed" with the action Edit property → Last reviewed → Today. The API can't create buttons.
-2. Make #wiki-bot a private channel for the People team and the Notion admin.
-3. Create a Claude scheduled task, weekly on Monday, with the Notion and Slack connectors on. Paste [wiki-bot-prompt.md](wiki-bot-prompt.md) as the prompt.
+1. Make #wiki-bot a private channel for the People team and the Notion admin.
+2. Create a Claude scheduled task, every working day in the morning, with the Notion and Slack connectors on. Paste [wiki-bot-prompt.md](wiki-bot-prompt.md) as the prompt. The prompt itself knows which day is the full run.
+3. Optional: a Button property "Mark as reviewed" in the Wiki registry (Edit property → Last reviewed → Today), for people who'd rather click in Notion. The bot reads Last reviewed either way. The API can't create buttons.
 4. First run with `DRY_RUN = true`. Read the log. When it's right, set `DRY_RUN = false`.
 
 ## Change it
@@ -64,6 +75,7 @@ All rules sit in the Settings table at the top of the prompt: review cycle, remi
 
 ## Changes
 
+- **2026-10-19, review moves to Slack:** owners review in the reminder thread instead of the registry. ✅ on a page's reply marks it reviewed, ✅ on the DM marks all its pages. Answers to open questions go in the thread and the bot adds them to the page as "Added by the owner" blocks, word for word. The bot now runs every working day: the daily run only reads replies, so a ✅ shows on the page the next morning, not a week later. New registry property Reminder thread. This replaces the decision below that the bot shouldn't read Slack: owners don't open the registry, so the button was a step most of them would skip.
 - **2026-10-19, after the live run** ([log](runs/2026-10-19-run.md)): a page stays Needs review while it has open questions, even after "Mark as reviewed". The owner name on the page now comes from the registry, so a new owner shows up. The bot never archives a personal page, it asks for Move or Keep instead. The owner DM explains why it arrives and what to do in three steps, with open questions in the thread. The log uses full sentences and separates what changed from what waits for a decision. The Review queue has two views: To decide and Done.
 - **2026-10-19, after the first dry run** ([log](runs/2026-10-19-dry-run.md)): owner-left pages stay Needs review until a new owner is named (step 1 no longer overwrites it), and personal pages in the scanned sections go to the queue even when no key page covers their topic.
 - **2026-10-19:** first version. Claude scheduled task instead of an Apify Actor, to keep it simple. Owners confirm with a button in the registry instead of a Slack reply, so the bot doesn't need to read Slack.

@@ -59,7 +59,7 @@ The full rules are in [How to write a page in the Apify wiki](https://app.notion
 ### 👥 Who does what
 
 🧭 **Team leaders** choose one owner for each key page and help decide which version to keep when there are duplicates. We aim to keep this under an hour per leader across the six weeks.
-✍️ **Page owners** help check the facts during the cleanup. After that, they get a Slack reminder every 3 months, check the page and mark it as reviewed in the [Wiki registry](https://app.notion.com/p/046c9b6acf9949ecaccebd31179332b4).
+✍️ **Page owners** help check the facts during the cleanup. After that, they get a Slack reminder every 3 months, check the page and react ✅ in Slack. Open questions get answered in the same thread. No need to open Notion for it.
 🤝 **The People team** runs the cleanup, coordinated by Markéta Pařízek. We use the wiki skill to help rewrite pages, merge duplicates, move 1:1s and meeting notes out of General, and set up the review reminders.
 🛠️ **Engineering** keeps GitHub as the source for technical docs. For selected docs that other teams need, we add a short Notion summary with a link to the original. The summary updates when the GitHub file changes.
 
@@ -83,7 +83,7 @@ We don't copy full technical docs into Notion.
 
 **26 to 30 Oct.** Team leaders name an owner for each key page. We collect real questions and test Claude on them.
 **2 to 13 Nov.** We fix the key pages with the wiki skill. Owners check the facts. Duplicates get archived, 1:1s and meeting notes move out of General.
-**16 to 27 Nov.** The review bot runs every Monday. Owners get their first reminder and mark their pages as reviewed.
+**16 to 27 Nov.** The review bot runs every Monday. Owners get their first reminder and confirm their pages with ✅ in Slack.
 **30 Nov to 4 Dec.** We test Claude on the same questions again and share the results in #general on 4 December.
 
 ### 📊 What we'll check on 4 December 2026

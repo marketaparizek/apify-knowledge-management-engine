@@ -42,7 +42,7 @@ Copy of the Notion page https://app.notion.com/p/214ab6e4e96382a0a92e819d3eb0d1b
 
 - **Icon.** Every page has one gray Notion icon for its topic, like the airplane for travel (Notion icon picker, Icons tab, gray). Colour emoji make a hub look busy. Never ✅, ⚠️ or 🗄️, because those show the status. The icon shows in the sidebar, in search results and in every link, so it helps people spot the page.
 - **Cover.** Only hub pages have a cover, and all hubs use the same Apify pattern. Content pages have no cover, because it pushes the answer one screen down.
-- **Callouts.** Use them for three things only: the status line, the brief summary, and a warning that applies to the reader. The wiki home page adds its three reader callouts (see Hub page). Not for decoration or quotes.
+- **Callouts.** Use them for three things only: the status line, the brief summary, and a warning that applies to the reader. The wiki home page adds its three reader callouts (see Hub page). Not for decoration or quotes. The one exception is a blue 💬 "Added by the owner" callout from the review bot, which stays until the owner folds the answer into the text.
 
 ## 🎯 One topic, one page
 
@@ -62,7 +62,7 @@ Copy of the Notion page https://app.notion.com/p/214ab6e4e96382a0a92e819d3eb0d1b
 
 - Every core page has a row in the Wiki registry (https://app.notion.com/p/046c9b6acf9949ecaccebd31179332b4) with its owner and the date of the last review.
 - The review bot runs every Monday. 7 days before a review is due, the owner gets a Slack message with a link to the page and any open questions. If the review is overdue, the owner gets one more message.
-- The owner fixes what changed and presses "Mark as reviewed" on the page's row in the registry, even when nothing changed.
-- On its next run, the review bot sets the status to ✅ Up to date. If the last review is older than 3 months, it sets ⚠️ Needs review.
+- The owner fixes what changed and reacts ✅ to the page's reply in that Slack thread, even when nothing changed. Answers to open questions go in the same thread, starting with the page number.
+- The next working day, the review bot sets the status to ✅ Up to date and adds each answer to the page as an "Added by the owner" block. The owner folds it into the text at the next review. If the last review is older than 3 months, the bot sets ⚠️ Needs review.
 - The review bot also lists possible duplicates, pages with no edit in 12 months and working docs in the Review queue (https://app.notion.com/p/596932576a4f4df388ffeaeb9349ea80). The Notion admin decides what gets archived.
 - Before you leave Apify or change teams, hand your pages to a new owner.

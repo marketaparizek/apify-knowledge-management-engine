@@ -29,7 +29,7 @@ Debrief: 15 min walkthrough, 15 min live change to the automation, 30 min role p
 - Status line under the title, exact format the bot parses:
   `Up to date · Owner: Full Name, Team (Slack: @handle) · Last reviewed: YYYY-MM-DD`
   Unchecked page: `Needs review · ... · Last reviewed: not yet`. Archived: `Archived · Replaced by: <page> · Archived: YYYY-MM-DD`.
-- Status is computed by the bot from the review date and open questions: Up to date only when reviewed in the last 90 days and the row has no open questions. Nobody sets it by hand. The owner only presses "Mark as reviewed" in the Wiki registry, which sets the date.
+- Status is computed by the bot from the review date and open questions: Up to date only when reviewed in the last 90 days and the row has no open questions. Nobody sets it by hand. The owner only reacts ✅ in the Slack reminder thread, which the bot turns into the date. Answers to open questions also come through the thread; the bot adds them to the page as "Added by the owner" blocks.
 - Archived page with no replacement: `Archived · No replacement · Archived: YYYY-MM-DD`.
 - Page icon is for the topic, never ✅ ⚠️ 🗄️.
 - Archiving never deletes text: title gets "Archived:" prefix, gray callout, page moves under Archive.
