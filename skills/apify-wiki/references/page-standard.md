@@ -6,7 +6,7 @@ Copy of the Notion page https://app.notion.com/p/214ab6e4e96382a0a92e819d3eb0d1b
 
 ## Four types of pages
 
-- **Hub page.** The entry page for an area, like Company or Office. It has a status line and a brief summary, then its subpages grouped under H2 headings by topic. Under each heading, one sentence says what the section answers, so the hub isn't a bare list of links and keyword search lands on it too. Next to the links, titles only. On a hub the brief summary is a plain paragraph that starts with bold "Brief summary.", not a callout, so the only box at the top is the status line. The vision, if the hub has one, is a quote block under the summary. Sections sit in rows of two columns, each row separated by a divider, with H3 headings and the lead sentence in gray. The whole hub then fits on one screen. If a title doesn't tell the reader what's on the page, rename the subpage, don't add text to the hub.
+- **Hub page.** The entry page for an area, like Company or Office. It has a status line and a brief summary, then its subpages grouped under H2 headings by topic. A hub has two columns. The narrow left column (a quarter of the width) is the navigation: H3 group labels, the subpages under each, a divider between groups, titles only. The wide right column holds the brief summary as a plain paragraph starting with bold "Brief summary.", the vision as a quote if there is one, and a board of the area's key pages from the Wiki registry, grouped by team, with status, owner and last review. The status line is the only callout. If a title doesn't tell the reader what's on the page, rename the subpage, don't add text to the hub.
 - **Content page.** Answers one group of questions, like business travel. Most pages are this type. A content page sits at most two levels below a hub page.
 - **Link page.** Summarises a document that lives in GitHub or Google Drive and links to it. If the link page and the source differ, the source is right.
 - **Archived page.** A page that another page replaced, or that is out of date and nothing replaced. It moves under the Archive page and keeps its old text. Its title starts with "Archived:", so people and Claude see it in search results without opening the page. A gray 🗄️ status line at the top says which page replaced it and when. Claude looks in archived pages last, and when it answers from one, it says so.
@@ -40,7 +40,7 @@ Copy of the Notion page https://app.notion.com/p/214ab6e4e96382a0a92e819d3eb0d1b
 
 ## Icons, covers and callouts
 
-- **Icon.** Every page has one emoji for its topic, like ✈️ for travel. Never ✅, ⚠️ or 🗄️, because those show the status. The icon shows in the sidebar, in search results and in every link, so it helps people spot the page.
+- **Icon.** Every page has one gray Notion icon for its topic, like the airplane for travel (Notion icon picker, Icons tab, gray). Colour emoji make a hub look busy. Never ✅, ⚠️ or 🗄️, because those show the status. The icon shows in the sidebar, in search results and in every link, so it helps people spot the page.
 - **Cover.** Only hub pages have a cover, and all hubs use the same Apify pattern. Content pages have no cover, because it pushes the answer one screen down.
 - **Callouts.** Use them for three things only: the status line, the brief summary, and a warning that applies to the reader. Not for decoration or quotes.
 
