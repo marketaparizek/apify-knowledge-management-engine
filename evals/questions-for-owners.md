@@ -51,4 +51,4 @@ Open questions from fixing the Company subpages. Each one goes to the page owner
 
 ## Brand
 - Brand guidelines (Eva Svobodová's personal page, edited September 2026, 410 views) and Apify brand essentials give different one-liners. Which is valid? The valid one moves to General, the other to Archive.
-- Apify brand essentials sits outside this workspace. Claude can't read it through the connector.
+- Apify brand essentials sits outside this workspace. Claude can't read it through the connector, and the link leads nowhere for people outside it. Taken off the Company hub on 2026-10-19 until the valid brand page is in General.

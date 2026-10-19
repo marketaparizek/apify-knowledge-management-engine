@@ -69,7 +69,7 @@ Search is keyword only and returns about 50 results. Run 3 to 4 short searches w
 - "On this page" label and table of contents only on content pages with 4+ H2 sections. Never on hub pages. H2 only, no emoji in headings.
 - Every section makes sense on its own.
 - One gray Notion icon as page icon (format `icons/<name>_gray`), never a status emoji. Cover only on hub pages (the Apify pattern). Callouts only for status, brief summary and reader warnings.
-- Hub page: status line, then `<columns>` with ratio 25 and 75. Left: `###` group labels, `<page>` blocks, `---` between groups. Right: **Brief summary.** paragraph, vision as `>` quote, linked board of the Wiki registry (grouped by Team, filtered to the hub's area, showing Status, Owner, Last reviewed). No callouts except the status line. No archived pages in the groups, only the Archive page.
+- Hub page: status line, then `<columns>` with ratio 25 and 75. Left: `###` group labels, `<page>` blocks, `---` between groups. Right: **Brief summary.** paragraph, vision as `>` quote, then `###` "New at Apify? Start here" (numbered, up to 3 mentions), "What's new" (dated bullets, newest first, each with a mention; only facts already on the linked page), "Can't find something?" (who to ask). No database views on a hub: the registry is for admins. No links that lead outside the workspace. No callouts except the status line. No archived pages in the groups, only the Archive page.
 - Hub page titles: if a subpage title doesn't say what's on the page, list it under "Decisions needed" as a rename for that subpage. Don't fix it with text on the hub.
 - No `[TO CONFIRM]` left in the published text, and no questions in Notion comments.
 - Links are Notion mentions, never "see the X page" in plain text.
