@@ -41,7 +41,7 @@ For every registry row where Status is not Archived:
    - Last reviewed is empty → Needs review, "Last reviewed: not yet".
    - Last reviewed is REVIEW_CYCLE_DAYS days ago or less → Up to date.
    - Older → Needs review.
-2. If Status in the registry is different, update it.
+2. If Status in the registry is different, update it. Exception: when Bot note starts with "Owner left", the status stays Needs review whatever the date, until the People team names a new owner and clears the note.
 3. Open the page. Find the status callout right under the title. It starts with "Up to date", "Needs review" or "Archived". Replace the whole callout with:
    - Up to date: `<callout icon="✅" color="green_bg">Up to date · Owner: … · Last reviewed: YYYY-MM-DD</callout>`
    - Needs review: `<callout icon="⚠️" color="orange_bg">Needs review · Owner: … · Last reviewed: YYYY-MM-DD or not yet</callout>`
@@ -53,7 +53,7 @@ For every registry row where Status is not Archived:
 For every registry row:
 
 1. Look up "Owner Slack ID" in Slack.
-2. If the account doesn't exist or is deactivated, the owner has left. Set Owner to FALLBACK_OWNER, Owner Slack ID to the fallback ID, Status to Needs review, and rewrite the owner part of the status line: `Owner: Markéta Pařízek, People team (Slack: @marketa)`. Add the page to "Owner left" in the log, so the People team asks the team leader for a new owner.
+2. If the account doesn't exist or is deactivated, the owner has left. Set Owner to FALLBACK_OWNER, Owner Slack ID to the fallback ID, Status to Needs review, write "Owner left YYYY-MM-DD" at the start of Bot note, and rewrite the owner part of the status line: `Owner: Markéta Pařízek, People team (Slack: @marketa)`. Add the page to "Owner left" in the log, so the People team asks the team leader for a new owner.
 
 ## Step 3: Reminders
 
@@ -97,6 +97,7 @@ Before adding a row, check the Review queue. If a row with the same link exists,
 
 **Stale pages and working docs in the pilot sections.** Walk every page under each SCAN_ROOT (open the page, follow its subpages, two levels deep). Skip the registry, the queue, the Archive page and everything under it.
 - Title matches WORKING_DOC_TITLES, or path matches WORKING_DOC_PATHS → Reason = Working doc, Details = "Title matches '<pattern>'." or "Sits in team working docs."
+- Path matches PERSONAL_PAGE_PATHS and the title doesn't match WORKING_DOC_TITLES → Reason = Possible duplicate, Details = "In a personal space. Possible duplicate of <core page title>." or, when no core page covers the topic, "In a personal space. No key page on this topic yet."
 - The two test setup pages themselves are containers. Don't add them.
 - Not in the registry and last edited more than STALE_AFTER_MONTHS months ago → Reason = Stale, Details = "Last edited <YYYY-MM-DD>."
 

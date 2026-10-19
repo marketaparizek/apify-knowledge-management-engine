@@ -64,4 +64,5 @@ All rules sit in the Settings table at the top of the prompt: review cycle, remi
 
 ## Changes
 
+- **2026-10-19, after the first dry run** ([log](runs/2026-10-19-dry-run.md)): owner-left pages stay Needs review until a new owner is named (step 1 no longer overwrites it), and personal pages in the scanned sections go to the queue even when no key page covers their topic.
 - **2026-10-19:** first version. Claude scheduled task instead of an Apify Actor, to keep it simple. Owners confirm with a button in the registry instead of a Slack reply, so the bot doesn't need to read Slack.
