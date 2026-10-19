@@ -1,0 +1,26 @@
+# Apify knowledge management engine
+
+Keeps Apify's Notion wiki true and findable, for people and for Claude.
+
+Home assignment for the People Automations Partner role. Markéta Pařízek, October 2026.
+
+**Result so far:** the same 10 employee questions, asked to Claude through the Notion connector. Right answers went from 4 to 8 after fixing the Company page and its subpages.
+
+## What's here
+
+| Part | What | Where |
+|---|---|---|
+| 1a Diagnose | What's wrong for people and for Claude, what to fix first | [docs/1a-diagnose.md](docs/1a-diagnose.md) |
+| 1b Fix | Page standard, the wiki skill, fixed pages, before and after test | [docs/1b-fix.md](docs/1b-fix.md), [skills/apify-wiki](skills/apify-wiki), [evals](evals) |
+| 1c Build | Review bot: owners, review reminders, archiving | [automation](automation) (in progress) |
+| 2 Adoption | Slack replies, pilot plan, announcement | in progress |
+| Notes | Time spent, AI tools, assumptions | [docs/notes.md](docs/notes.md) |
+
+## In Notion
+
+- [How to write a page in the Apify wiki](https://app.notion.com/p/214ab6e4e96382a0a92e819d3eb0d1be): the page standard. The Notion page is the source of truth. The skill keeps a copy in `skills/apify-wiki/references/page-standard.md`.
+- [Company](https://app.notion.com/p/dcdab6e4e9638394b69e8124566358a4): the hub page and its subpages, fixed by the standard.
+
+## Install the skill
+
+See [skills/apify-wiki/README.md](skills/apify-wiki/README.md).
