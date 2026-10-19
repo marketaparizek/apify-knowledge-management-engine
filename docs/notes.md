@@ -2,7 +2,7 @@
 
 ## Time spent
 
-About 3 hours in total, across all four parts.
+About half a day in total, across all four parts.
 
 ## AI tools and why
 
