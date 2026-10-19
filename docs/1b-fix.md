@@ -21,7 +21,7 @@ The skill fixes what it can check in the wiki. Facts it can't check go to the pa
 
 | Problem | What the skill does | Fixes | Asks |
 |---|---|---|---|
-| No owner, no date. Nobody can tell if the page is still true. | Adds the owner and review date at the top. | ✓ | |
+| No owner, no date. Nobody can tell if the page is still true. | Adds the status line with the owner the team leader named. Until there is one, the People team stands in. | ✓ | |
 | The title isn't what people search for, like "SOP" for stock options. | Renames the page to the words people type. | ✓ | |
 | The point is buried in a long intro. | Writes a short summary at the top. | ✓ | |
 | Two or more pages on one topic say different things. | Archives the old ones with a link to the new one. Asks which is valid when it isn't clear. | ✓ | ✓ |
