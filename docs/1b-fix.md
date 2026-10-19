@@ -65,7 +65,7 @@ Test workspace, 19 October 2026. One keyword search per question, answer from th
 Nobody reads 25,000 pages. We sort them by what we can see without opening them: the title, where the page sits, when someone last edited it, and how many people read it.
 
 1. **Rules sort most pages.** A title like "1:1 notes", "Retro" or "Meeting notes" means a working doc, and it moves out of General. In the sample, the title alone caught half of all pages.
-2. **Pages nobody reads go to the archive.** No reads in 90 days and no edit in a year puts a page on a monthly list. The Notion admin approves the list, then the bot archives the pages. Any page can come back. Automated in Part 1c.
+2. **Pages nobody reads go to the archive.** No reads in 90 days and no edit in a year puts a page on a monthly list. The Notion admin approves the list, then the bot archives the pages. Any page can come back. The list comes from a views export by hand, because the Notion API has no page views. The archiving is automated in Part 1c.
 3. **Claude reads only what the rules can't decide.** A few hundred pages, not 25,000.
 4. **Team leaders confirm, they don't sort.** They get a ready proposal for their team's pages and reply only when something should stay.
 5. **Key pages come from questions.** The 30 questions people ask most in Slack point to about 30 pages. I fix those with the skill, and each owner checks the facts.

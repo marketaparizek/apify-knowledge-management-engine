@@ -56,4 +56,11 @@ All rules sit in the Settings table at the top of the prompt: review cycle (90 d
 
 ## See it run
 
-The first dry run, step by step with what each step found and what it taught us: [automation/runs/2026-10-19-dry-run.md](../automation/runs/2026-10-19-dry-run.md). The live run (status callouts rewritten, DMs sent, queue rows added) is the first thing the pilot does in week 1.
+Four runs on 19 October 2026 in the test workspace, each logged with what every step did:
+
+- [Dry run](../automation/runs/2026-10-19-dry-run.md). Found two prompt bugs, both fixed.
+- [First live run](../automation/runs/2026-10-19-run.md). Status lines, the first owner DM, 4 rows in the Review queue.
+- [Second live run](../automation/runs/2026-10-19-run-2.md). The first reminder in the Slack format, with one thread reply per page.
+- [Third live run](../automation/runs/2026-10-19-run-3.md). Fired by the scheduled task itself, not by hand.
+
+Not shown yet: the bot reading an owner's ✅ and answers (step 0), and archiving a page the admin approved (step 5). Both need a person to act first.

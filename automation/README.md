@@ -1,6 +1,6 @@
 # Review bot (Part 1c)
 
-Keeps the key pages of the wiki true after they are fixed. Every Monday it checks how fresh each page is, reminds owners in Slack and suggests what to archive. Every working day it reads what owners answered in Slack. It never changes what a page says on its own. People make every decision.
+Keeps the key pages of the wiki true after they are fixed. Every Monday it checks how fresh each page is, reminds owners in Slack and suggests what to archive. Every working day it reads what owners answered in Slack. It never rewrites a page. It only updates the status line, adds owners' answers from Slack word for word, and archives what the admin approved. People make every decision.
 
 Owners do the whole review in Slack. They never open the registry.
 
@@ -17,7 +17,7 @@ It runs as a Claude scheduled task with the Notion and Slack connectors. The who
 
 ## What happens every working day
 
-0. **Owner replies.** Reads the threads of the reminder DMs. ✅ on a page's reply means "still true": the bot sets Last reviewed to today and the page turns Up to date the same day. A reply like "3: Tomáš Kovář" answers an open question: the bot adds it to the page as an "Added by the owner" block, word for word, and closes the question. If it can't tell which question an answer belongs to, it asks in the thread and writes nothing.
+0. **Owner replies.** Reads the threads of the reminder DMs. ✅ on a page's reply means "still true": the bot sets Last reviewed to today and the page turns Up to date at the next working day's run. A reply like "3: Tomáš Kovář" answers an open question: the bot adds it to the page as an "Added by the owner" block, word for word, and closes the question. If it can't tell which question an answer belongs to, it asks in the thread and writes nothing.
 
 The log goes to #wiki-bot only when something changed.
 
@@ -66,8 +66,7 @@ At 30 pages a week, a written checklist is enough, and anyone in the People team
 
 1. Make #wiki-bot a private channel for the People team and the Notion admin.
 2. Create a Claude scheduled task, every working day in the morning, with the Notion and Slack connectors on. Paste [wiki-bot-prompt.md](wiki-bot-prompt.md) as the prompt. The prompt itself knows which day is the full run.
-3. Optional: a Button property "Mark as reviewed" in the Wiki registry (Edit property → Last reviewed → Today), for people who'd rather click in Notion. The bot reads Last reviewed either way. The API can't create buttons.
-4. First run with `DRY_RUN = true`. Read the log. When it's right, set `DRY_RUN = false`.
+3. First run with `DRY_RUN = true`. Read the log. When it's right, set `DRY_RUN = false`.
 
 ## Change it
 

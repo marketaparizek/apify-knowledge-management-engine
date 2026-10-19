@@ -112,14 +112,14 @@ Send the DM as plain Slack text in this format. Leave out a group or a line that
 ```
 Hi <first name> 👋
 
-You own <N> pages in the Apify wiki. Every 3 months, each owner checks
+You own <N> pages in the Apify wiki. Every <REVIEW_CYCLE_DAYS> days, each owner checks
 that their pages are still true, so colleagues and Claude can rely on them.
 These <N> are due now.
 
 🟠 Overdue
 1. <Page title>, <n> open questions (overdue since YYYY-MM-DD | never reviewed)
 
-🟡 Due in the next 7 days
+🟡 Due in the next <REMINDER_LEAD_DAYS> days
 2. <Page title>, <n> open questions (due YYYY-MM-DD)
 
 What to do, all here in Slack
