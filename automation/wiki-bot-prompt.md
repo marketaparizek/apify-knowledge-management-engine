@@ -26,7 +26,7 @@ The People team changes these. Nothing else in this prompt needs to change.
 | GENERAL_TEAMSPACE_ID | 3feab6e4-e963-8133-b2bd-00424a851989 (test workspace: the HQ teamspace stands in for General) |
 | PERSONAL_PAGE_PATHS | "Personal /" (Apify). Test workspace: "Company / Personal pages (test setup)" |
 | WORKING_DOC_PATHS | Test workspace: "Company / Team working docs (test setup)" |
-| SCAN_ROOTS | https://app.notion.com/p/dcdab6e4e9638394b69e8124566358a4 (Company). Add the home page of each pilot team. |
+| SCAN_ROOTS | https://app.notion.com/p/dcdab6e4e9638394b69e8124566358a4 (Company). During the pilot, from 26 October 2026, also the home pages of People, Engineering and Customer Success. Add their links here before the first pilot run. The test workspace has no team home pages, so it scans Company only. |
 | WORKING_DOC_TITLES | 1:1, 1-1, one-on-one, meeting notes, retro, retrospective, standup, weekly sync, plan Q, notes, untitled, WIP, draft |
 | LOG_CHANNEL | #wiki-bot (C0CAD3CLQGZ, private) |
 | FALLBACK_OWNER | Markéta Pařízek, People team, Slack ID U0CA96XN31C |
