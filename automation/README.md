@@ -15,7 +15,7 @@ It runs as a Claude scheduled task with the Notion and Slack connectors. The who
 
 ## What happens every Monday
 
-1. **Freshness check.** Reviewed in the last 90 days: ✅ Up to date. Older or never: ⚠️ Needs review. Updates the registry and the status line on the page.
+1. **Freshness check.** Reviewed in the last 90 days and no open questions: ✅ Up to date. Otherwise: ⚠️ Needs review. Updates the registry and the status line on the page.
 2. **Owner check.** If the owner's Slack account is gone, the page goes to the fallback owner until the team leader names someone.
 3. **Reminders.** One DM per owner, 7 days before the review is due, and one more when it's overdue. Never more. Open questions about the page go in the same message.
 4. **Duplicates and outdated pages.** Pages on the same topic as a key page, pages with no edit in 12 months, and 1:1s or meeting notes in General go to the review queue.
@@ -64,5 +64,6 @@ All rules sit in the Settings table at the top of the prompt: review cycle, remi
 
 ## Changes
 
+- **2026-10-19, after the live run** ([log](runs/2026-10-19-run.md)): a page stays Needs review while it has open questions, even after "Mark as reviewed". The owner name on the page now comes from the registry, so a new owner shows up. The bot never archives a personal page, it asks for Move or Keep instead. The owner DM explains why it arrives and what to do in three steps, with open questions in the thread. The log uses full sentences and separates what changed from what waits for a decision. The Review queue has two views: To decide and Done.
 - **2026-10-19, after the first dry run** ([log](runs/2026-10-19-dry-run.md)): owner-left pages stay Needs review until a new owner is named (step 1 no longer overwrites it), and personal pages in the scanned sections go to the queue even when no key page covers their topic.
 - **2026-10-19:** first version. Claude scheduled task instead of an Apify Actor, to keep it simple. Owners confirm with a button in the registry instead of a Slack reply, so the bot doesn't need to read Slack.

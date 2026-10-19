@@ -10,9 +10,9 @@ A Claude scheduled task reads one Notion table, checks how fresh each key page i
 
 ## What happens every Monday
 
-1. **Checks how fresh each page is.** Reviewed in the last 90 days: up to date. Older or never: needs review. Updates the status line on the page.
+1. **Checks how fresh each page is.** Reviewed in the last 90 days and no open questions: up to date. Otherwise: needs review. Updates the status line on the page.
 2. **Checks the owner is still here.** Owner's Slack account is gone: the page goes to the People team until the team leader names someone.
-3. **Reminds owners.** One direct message per owner, 7 days before the review is due, and one more if it's overdue. Never more.
+3. **Reminds owners.** One direct message per owner, 7 days before the review is due, and one more if it's overdue. Never more. The message says why it arrives and what to do in three steps. Open questions go in the thread.
 4. **Finds duplicates and outdated pages.** Pages with the same topic as a key page, pages with no edit in 12 months, and 1:1s or meeting notes in General.
 5. **Carries out decisions.** What the admin marked "Archive" gets archived: title prefix, gray status line, moved under Archive. Old text stays.
 6. **Writes the log.** What changed, who got a reminder, what failed. In a private channel.

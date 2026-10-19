@@ -14,6 +14,7 @@ The People team changes these. Nothing else in this prompt needs to change.
 | STALE_AFTER_MONTHS | 12 |
 | REGISTRY | collection://79fb0939-3018-48e5-a3cb-dfb6163edf4f (Wiki registry) |
 | REVIEW_QUEUE | collection://c5c3ae49-d341-4bc4-a683-5d6e0edaa197 (Review queue) |
+| TO_DECIDE_VIEW | https://app.notion.com/p/596932576a4f4df388ffeaeb9349ea80?v=3feab6e4e963812ca8e4000c80d82eb8 (Review queue, rows without Done) |
 | ARCHIVE_PAGE | https://app.notion.com/p/3feab6e4e963815cb308c24aff1f9741 |
 | GENERAL_TEAMSPACE_ID | 3feab6e4-e963-8133-b2bd-00424a851989 (test workspace: the HQ teamspace stands in for General) |
 | PERSONAL_PAGE_PATHS | "Personal /" (Apify). Test workspace: "Company / Personal pages (test setup)" |
@@ -37,23 +38,24 @@ The People team changes these. Nothing else in this prompt needs to change.
 
 For every registry row where Status is not Archived:
 
-1. Work out the status:
-   - Last reviewed is empty → Needs review, "Last reviewed: not yet".
-   - Last reviewed is REVIEW_CYCLE_DAYS days ago or less → Up to date.
-   - Older → Needs review.
-2. If Status in the registry is different, update it. Exception: when Bot note starts with "Owner left", the status stays Needs review whatever the date, until the People team names a new owner and clears the note.
-3. Open the page. Find the status callout right under the title. It starts with "Up to date", "Needs review" or "Archived". Replace the whole callout with:
-   - Up to date: `<callout icon="✅" color="green_bg">Up to date · Owner: … · Last reviewed: YYYY-MM-DD</callout>`
-   - Needs review: `<callout icon="⚠️" color="orange_bg">Needs review · Owner: … · Last reviewed: YYYY-MM-DD or not yet</callout>`
-   Keep the "Owner: …" part exactly as it is on the page, unless the registry has a different owner (see step 2).
-4. If the callout already matches, change nothing. If there is no status callout, don't add one. Write "Status line not found" in Bot note.
+1. Work out the status. A page is Up to date only when all three are true:
+   - Last reviewed is REVIEW_CYCLE_DAYS days ago or less,
+   - Open questions is empty,
+   - Bot note doesn't start with "Owner left".
+   Otherwise it is Needs review. Empty Last reviewed means "Last reviewed: not yet".
+2. If Status in the registry is different, update it.
+3. Work out the owner part of the status line from the registry, not from the page: `Owner: <full name of the person in Owner>, <team> (Slack: @<handle>)`. Take the handle and the team from the Slack profile of Owner Slack ID (team = the profile's title or department, otherwise the row's Team property followed by " team"). This way a new owner set in the registry shows up on the page.
+4. Open the page. Find the status callout right under the title. It starts with "Up to date", "Needs review" or "Archived". Replace the whole callout with:
+   - Up to date: `<callout icon="✅" color="green_bg">Up to date · <owner part> · Last reviewed: YYYY-MM-DD</callout>`
+   - Needs review: `<callout icon="⚠️" color="orange_bg">Needs review · <owner part> · Last reviewed: YYYY-MM-DD or not yet</callout>`
+5. If the callout already matches, change nothing. If there is no status callout, don't add one. Write "Status line not found" in Bot note.
 
 ## Step 2: Owner check
 
 For every registry row:
 
 1. Look up "Owner Slack ID" in Slack.
-2. If the account doesn't exist or is deactivated, the owner has left. Set Owner to FALLBACK_OWNER, Owner Slack ID to the fallback ID, Status to Needs review, write "Owner left YYYY-MM-DD" at the start of Bot note, and rewrite the owner part of the status line: `Owner: Markéta Pařízek, People team (Slack: @marketa)`. Add the page to "Owner left" in the log, so the People team asks the team leader for a new owner.
+2. If the account doesn't exist or is deactivated, the owner has left. Set Owner to FALLBACK_OWNER, Owner Slack ID to the fallback ID, Status to Needs review, write "Owner left YYYY-MM-DD" at the start of Bot note, and rewrite the status line with the fallback owner as in step 1. Report it in the log, so the People team asks the team leader for a new owner.
 
 ## Step 3: Reminders
 
@@ -67,21 +69,39 @@ That is at most two messages per page per review cycle. Never send more.
 
 Group pages by owner: one DM per owner, all their pages in it. Then set Last reminder to today on each page you included.
 
-Message format (plain Slack text, no emoji except the ones shown):
+Send the DM as plain Slack text in this format. Leave out a group or a line that would be empty. Each page title is a link to the page.
 
 ```
-Hi <first name>, <N> of your wiki pages need a check.
+Hi <first name> 👋
 
-*<Page title>* (due <YYYY-MM-DD> | overdue since <YYYY-MM-DD>)
-Page: <link>
-Open questions:
-- <each question from Open questions, one per line; leave this part out if empty>
+You own <N> pages in the Apify wiki. Every 3 months, each owner checks
+that their pages are still true, so colleagues and Claude can rely on them.
+These <N> are due now.
 
-When the page is still true, or after you fix it, press "Mark as reviewed" on its row in the Wiki registry: <registry row link>
-It takes about 10 minutes per page. Questions: Markéta Pařízek (@marketa).
+🟠 Overdue
+• <Page title>, <n> open questions (overdue since YYYY-MM-DD | never reviewed)
+
+🟡 Due in the next 7 days
+• <Page title>, <n> open questions (due YYYY-MM-DD)
+
+What to do
+1. Open the page and fix anything that's no longer true.
+2. Answer the open questions in the thread below and add the answers to the page.
+3. Press "Mark as reviewed" on the page's row in the Wiki registry: <registry link>
+
+Until then the page shows "Needs review" at the top, so readers know to
+double-check. It takes about 10 minutes per page.
+Questions: Markéta Pařízek (@marketa).
 ```
 
-If "Open questions" is not empty, say in the message that the page stays Needs review until the questions are answered and removed from the row.
+Leave out "<n> open questions" and step 2 when a page has none. Then reply in the thread of that DM, one reply per page that has open questions:
+
+```
+*<Page title>*
+• <question>
+• <question>
+The page stays "Needs review" until these are answered on the page and removed from its row in the registry.
+```
 
 ## Step 4: Find duplicates and outdated pages
 
@@ -106,6 +126,7 @@ Before adding a row, check the Review queue. If a row with the same link exists,
 For every queue row where Decision is set and Done is empty:
 
 - **Archive:**
+  0. If the page's path matches PERSONAL_PAGE_PATHS, don't archive it: it's someone's own page. Leave Done empty and list it under "Waiting for a decision" in the log: "<page> is a personal page, so the bot won't archive it. Choose Move or Keep." Go to the next row.
   1. Add "Archived: " to the start of the title, if it isn't there.
   2. Replace the status callout at the top, or add one if there is none:
      `<callout icon="🗄️" color="gray_bg">Archived · Replaced by: <mention-page of the core page> · Archived: YYYY-MM-DD`
@@ -115,24 +136,36 @@ For every queue row where Decision is set and Done is empty:
   4. Move the page under ARCHIVE_PAGE.
   5. If the page is in the registry, set its Status to Archived.
 - **Keep:** change nothing on the page.
-- **Move:** change nothing on the page. List it under "Move out of General" in the log. The People team asks the author, because the Notion export doesn't show reliably who wrote a page.
+- **Move:** change nothing on the page. List it in the log under "Waiting for a decision": "<page> should move out of General. Ask its author where it belongs." The People team asks the author, because the Notion export doesn't show reliably who wrote a page.
 
-Then set Done to today.
+Then set Done to today (except for a personal page that wasn't archived, see Archive step 0).
 
 ## Step 6: Log
 
-Post one message to LOG_CHANNEL. Leave out any section that is empty.
+Post one message to LOG_CHANNEL in this format. Leave out any line or group that would be empty. Write full sentences with the reason and who should act, not labels.
 
 ```
-Wiki bot run, <YYYY-MM-DD>
-Up to date: <n> · Needs review: <n> · Archived this week: <n>
+Wiki bot, weekly run, YYYY-MM-DD
+Checks the key pages in the Wiki registry: are they reviewed,
+do their owners still work here, is there clutter to clean up.
 
-Status changed: <page>: <old> → <new>
-Reminders sent: <owner>: <pages>
-Owner left: <page> (now Markéta Pařízek, ask the team leader)
-Overdue, last reminder sent, still no review: <page>, owner, due date
-New in the review queue: <n> (<n> duplicates, <n> stale, <n> working docs). Decide here: <queue link>
-Archived: <page>
-Move out of General: <page>
-Problems: <page>: <what failed>
+📊 <n> up to date · <n> need review · <n> archived this week
+
+What changed
+• <Page> now needs review. Its owner, <name>, is no longer in Slack. <Fallback owner first name> owns it for now. Ask the team leader to name someone.
+• <Page> is up to date again: <owner> marked it as reviewed.
+• <Page> now needs review: its last review was on YYYY-MM-DD.
+• Reminder sent to <owner> for <n> pages (<n> overdue, <n> due soon).
+• Archived <page>, replaced by <page>.
+• <Page> is still overdue after the last reminder. Owner: <name>, due YYYY-MM-DD.
+
+Waiting for a decision
+• <n> pages in the Review queue: <n> possible duplicates, <n> stale pages, <n> working docs. Choose Archive, Keep or Move for each: <TO_DECIDE_VIEW>
+• <Page> should move out of General. Ask its author where it belongs.
+• <Page> is a personal page, so the bot won't archive it. Choose Move or Keep.
+
+Problems
+• <Page>: <what failed>
 ```
+
+In a dry run, start the message with "Dry run, nothing was changed."

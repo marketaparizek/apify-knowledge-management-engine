@@ -9,7 +9,7 @@ Apify knowledge management engine: Markéta Pařízek's home assignment for the 
 Brief, short version:
 - **1a Diagnose:** what's wrong for a person and for an AI agent, what to fix first across 25,000 pages. Done: `docs/1a-diagnose.md`.
 - **1b Fix:** rework the example pages, explain how to get to final content. Done: `docs/1b-fix.md`, `skills/apify-wiki/`, `evals/`.
-- **1c Build:** a working automation that assigns owners, sends review reminders and archives what's outdated. Done: `docs/1c-build.md`, `automation/`. First dry run logged, live run not yet.
+- **1c Build:** a working automation that assigns owners, sends review reminders and archives what's outdated. Done: `docs/1c-build.md`, `automation/`. Dry run and first live run logged in `automation/runs/`.
 - **2 Adoption:** Slack replies to the Engineering lead, Sales lead and CEO, a one-page pilot plan for 3 teams, a #general announcement. Not started.
 
 Debrief: 15 min walkthrough, 15 min live change to the automation, 30 min role play.
@@ -29,7 +29,7 @@ Debrief: 15 min walkthrough, 15 min live change to the automation, 30 min role p
 - Status line under the title, exact format the bot parses:
   `Up to date · Owner: Full Name, Team (Slack: @handle) · Last reviewed: YYYY-MM-DD`
   Unchecked page: `Needs review · ... · Last reviewed: not yet`. Archived: `Archived · Replaced by: <page> · Archived: YYYY-MM-DD`.
-- Status is computed by the bot from the review date. Nobody sets it by hand. The owner only presses "Mark as reviewed" in the Wiki registry, which sets the date.
+- Status is computed by the bot from the review date and open questions: Up to date only when reviewed in the last 90 days and the row has no open questions. Nobody sets it by hand. The owner only presses "Mark as reviewed" in the Wiki registry, which sets the date.
 - Archived page with no replacement: `Archived · No replacement · Archived: YYYY-MM-DD`.
 - Page icon is for the topic, never ✅ ⚠️ 🗄️.
 - Archiving never deletes text: title gets "Archived:" prefix, gray callout, page moves under Archive.
