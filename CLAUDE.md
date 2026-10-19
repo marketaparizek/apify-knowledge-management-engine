@@ -10,7 +10,7 @@ Brief, short version:
 - **1a Diagnose:** what's wrong for a person and for an AI agent, what to fix first across 25,000 pages. Done: `docs/1a-diagnose.md`.
 - **1b Fix:** rework the example pages, explain how to get to final content. Done: `docs/1b-fix.md`, `skills/apify-wiki/`, `evals/`.
 - **1c Build:** a working automation that assigns owners, sends review reminders and archives what's outdated. Done: `docs/1c-build.md`, `automation/`. Dry run and first live run logged in `automation/runs/`.
-- **2 Adoption:** Slack replies to the Engineering lead, Sales lead and CEO, a one-page pilot plan for 3 teams, a #general announcement. Not started.
+- **2 Adoption:** Slack replies to the Engineering lead, Sales lead and CEO, a one-page pilot plan for 3 teams, a #general announcement. Done: `docs/part-2-adoption.md`, written together with Markéta. The pilot plan's source is the Notion page Notion wiki pilot.
 
 Debrief: 15 min walkthrough, 15 min live change to the automation, 30 min role play.
 
