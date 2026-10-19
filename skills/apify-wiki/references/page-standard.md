@@ -36,7 +36,7 @@ Copy of the Notion page https://app.notion.com/p/214ab6e4e96382a0a92e819d3eb0d1b
 - **Acronyms.** Spell out every acronym on first use.
 - **Images.** Write the content as text. If an image stays, add one sentence under it that says what it shows.
 - **Filler.** Cut "just", "actually", "basically", "in order to", "it's worth noting", "leverage".
-- **Formatting.** Numbered lists for steps, bullets for options, sentences for explanations. Tables only for lookup data. Start every H2 heading with one emoji that fits the section, so the page is easy to scan. Bullets that name a role, a step or an option can start with an emoji too. Lists of facts or criteria stay plain. Never use ✅, ⚠️ or 🗄️ outside the status line.
+- **Formatting.** Numbered lists for steps, bullets for options, sentences for explanations. Tables only for lookup data. Start every H2 heading with one emoji that fits the section, so the page is easy to scan. Lines that name a role, a step or an option can start with an emoji instead of a bullet point, never both. Lists of facts or criteria stay as plain bullets. Never use ✅, ⚠️ or 🗄️ outside the status line.
 
 ## 🎨 Icons, covers and callouts
 
