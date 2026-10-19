@@ -41,8 +41,8 @@ Owners only hear about their own pages, in a direct message. The run log goes to
 | Archiving without a yes | Archiving the valid page costs more than one click from the admin. | Never. |
 | Picking the valid duplicate | Views don't decide: a draft can be read more than the real policy. | Never. |
 | Chasing owners who don't reply | In a pilot with 3 teams, I do it by hand and learn if it's needed. | If more than a few pages a month stay overdue. |
-| Filling the registry | 30 pages, about an hour, once. | When we go past the pilot. |
-| Slack decisions into Notion | We don't know yet if it's the biggest gap. | If the pilot shows answers live only in threads. |
+| Choosing which pages go in the registry | The triage picks them from a views export, about 30 key pages for the pilot. The People team imports that list and each team leader confirms the owner. The bot can't do it, because page views aren't in the Notion API. | When views can be exported on a schedule, the import can run every month. |
+| Turning Slack discussions into wiki pages | The page owner does it with the wiki skill, which turns a Slack thread into a page draft for the owner to approve. The bot only reads its own reminder threads. Deciding which other thread holds a decision, and which page it belongs to, is a call about content. | If the pilot shows that answers keep living only in Slack threads. |
 
 ## Why a Claude scheduled task, and where it stops
 
