@@ -13,7 +13,7 @@ Home assignment for the People Automations Partner role. Markéta Pařízek, Oct
 | 1a Diagnose | What's wrong for people and for Claude, what to fix first | [docs/1a-diagnose.md](docs/1a-diagnose.md) |
 | 1b Fix | Page standard, the wiki skill, fixed pages, before and after test | [docs/1b-fix.md](docs/1b-fix.md), [skills/apify-wiki](skills/apify-wiki), [evals](evals) |
 | 1c Build | Weekly review bot: freshness check, owner reminders, duplicates, archiving | [docs/1c-build.md](docs/1c-build.md), [automation](automation) |
-| 2 Adoption | Slack replies, pilot plan, announcement | in progress |
+| 2 Adoption | Slack replies to three leaders, 6-week pilot plan for 3 teams, #general announcement | [docs/part-2-adoption.md](docs/part-2-adoption.md) |
 | Notes | Time spent, AI tools, assumptions | [docs/notes.md](docs/notes.md) |
 
 ## In Notion
