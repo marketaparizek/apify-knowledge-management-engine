@@ -56,4 +56,4 @@ All rules sit in the Settings table at the top of the prompt: review cycle (90 d
 
 ## See it run
 
-[Demo video: run → owner gets a DM → presses "Mark as reviewed" → next run → the page turns up to date.]
+The first dry run, step by step with what each step found and what it taught us: [automation/runs/2026-10-19-dry-run.md](../automation/runs/2026-10-19-dry-run.md). The live run (status callouts rewritten, DMs sent, queue rows added) is the first thing the pilot does in week 1.
