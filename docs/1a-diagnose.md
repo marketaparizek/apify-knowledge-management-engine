@@ -57,13 +57,13 @@
 
 ## What to fix first
 
-1. Competing pages behind the top 30 employee questions.
+1. Competing versions of the most-read pages.
 2. An owner for every page people read.
 3. 1:1s and meeting notes out of General.
 4. One page format: owner and review date in the text, real links, text instead of screenshots.
 5. Everything else, flagged by the automation.
 
-At 25,000 pages we start from questions, not pages. We take the top 30 questions from Slack, ask Claude each one through the Notion connector and mark the answer right, wrong or conflicting. That's the baseline. Working docs move in bulk by title pattern. A person only reads the pages behind those 30 questions.
+At 25,000 pages we start from what people read. The views export shows the most-read pages, and about 30 of them become key pages. Working docs move in bulk by title pattern. A person only reads the key pages.
 
 ## The 35 most-read pages and their problems
 

@@ -81,14 +81,14 @@ We don't copy full technical docs into Notion.
 
 ### 🗓️ Six weeks, week by week
 
-**26 to 30 Oct.** Team leaders name an owner for each key page. We collect real questions and test Claude on them.
+**26 to 30 Oct.** Team leaders name an owner for each key page. We write 100 test questions for the key pages with AI, owners confirm the right answers, and we test Claude on them.
 **2 to 13 Nov.** We fix the key pages with the wiki skill. Owners check the facts. Duplicates get archived, 1:1s and meeting notes move out of General.
 **16 to 27 Nov.** The review bot runs every Monday. Owners get their first reminder and confirm their pages with ✅ in Slack.
 **30 Nov to 4 Dec.** We test Claude on the same questions again and share the results in #general on 4 December.
 
 ### 📊 What we'll check on 4 December 2026
 
-- Claude answers at least 24 of the 30 real questions we collect in the first week correctly.
+- Claude answers at least 95 of the 100 verified questions correctly.
 - Every key page across the three teams has a named owner.
 - At least 80% of owners respond to a review reminder within 5 working days.
 - No duplicates, 1:1s or meeting notes remain in the three teams' wiki sections.

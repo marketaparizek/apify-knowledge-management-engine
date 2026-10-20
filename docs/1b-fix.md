@@ -31,7 +31,7 @@ The skill fixes what it can check in the wiki. Facts it can't check go to the pa
 
 ## Did it work
 
-10 questions employees really ask. Claude answered each one through the Notion connector, before and after the fix.
+10 typical employee questions, written from the example pages. Claude answered each one through the Notion connector, before and after the fix.
 
 | Question | Right answer | Before | After |
 |---|---|---|---|
@@ -52,6 +52,8 @@ The 2 that are left wait for a person, not a format: the 2025 changes to stock o
 
 Test workspace, 19 October 2026. One keyword search per question, answer from the top results, the way an agent works. Full results and side findings: [evals](../evals/README.md).
 
+This is a small test, so it shows a direction, not a score. I wrote the questions and the right answers myself and ran each question once. In the pilot we test on 100 questions with answers confirmed by page owners, each asked several ways. [How the real test works](../evals/README.md#what-this-test-can-and-cant-show).
+
 ## The skill
 
 - You give it a Notion link, or any text: a Slack thread, a Google Doc, notes.
@@ -68,7 +70,7 @@ Nobody reads 25,000 pages. We sort them by what we can see without opening them:
 2. **Pages nobody reads go to the archive.** No reads in 90 days and no edit in a year puts a page on a monthly list. The Notion admin approves the list, then the bot archives the pages. Any page can come back. The list comes from a views export by hand, because the Notion API has no page views. The archiving is automated in Part 1c.
 3. **Claude reads only what the rules can't decide.** A few hundred pages, not 25,000.
 4. **Team leaders confirm, they don't sort.** They get a ready proposal for their team's pages and reply only when something should stay.
-5. **Key pages come from questions.** The 30 questions people ask most in Slack point to about 30 pages. I fix those with the skill, and each owner checks the facts.
+5. **Key pages come from views.** The views export shows which pages people read most. About 30 of them become key pages. I fix those with the skill, and each owner checks the facts.
 
 Not automated on purpose: the skill never publishes alone, the bot never archives without the admin's yes, and nobody rewrites pages that nobody reads.
 

@@ -1,6 +1,6 @@
 # Before and after test
 
-The 10 questions employees ask, with the right answer. Claude answered each one through the Notion connector before and after fixing the Company subpages. Open questions that only a page owner can answer are in [questions-for-owners.md](questions-for-owners.md).
+10 typical employee questions, with the right answer. I wrote them from the example pages, because the brief has no real questions from employees. Claude answered each one through the Notion connector before and after fixing the Company subpages. Open questions that only a page owner can answer are in [questions-for-owners.md](questions-for-owners.md).
 
 Date: 2026-10-19, after fixing the Company subpages. Same method as the before test: one keyword search per question (Notion connector, whole test workspace), answer from the top results the way an agent would.
 
@@ -21,6 +21,22 @@ Date: 2026-10-19, after fixing the Company subpages. Same method as the before t
 **After: 8 correct, 1 unreliable, 1 conflicting, 0 wrong.**
 
 The two that are left aren't a page-format problem. They wait for an owner: the 2025 SOP changes (People team) and the valid one-liner (Brand). The page format can't fix missing facts. The review message to the owner can.
+
+## What this test can and can't show
+
+We can't fully verify the right answers yet, because no page owner has confirmed them. So this test is less precise than a real one on verified questions. Read 4 and 8 as a direction, not a score.
+
+- **I wrote the questions and the right answers myself**, from the pages in the test workspace. No owner at Apify has confirmed them yet, and some of them wait for an owner's answer ([questions for owners](questions-for-owners.md)).
+- **Each question ran once, in one wording.** Claude doesn't always answer the same way, and people ask the same thing in different words.
+- **The workspace is a copy I built**, with 10 Company pages. The real wiki has 25,000 pages, so search results there will look different.
+
+How I'd test it for real, in the pilot:
+
+1. **100 verified questions.** We write them with AI, about 3 per key page, in the words people use, not the words on the page.
+2. **The owner confirms each right answer** before a question goes into the test. Not me, not Claude.
+3. **Each question in 3 wordings, each run 3 times.** A question counts as right when at least 2 of 3 runs match the owner's answer, in every wording.
+4. **The real setup.** The same Claude and Notion connector employees use, on General. Once in week 1, once in the last week. The target is 95 of 100 ([pilot plan](../docs/part-2-adoption.md)).
+5. **After the pilot the questions stay.** The test runs again every month, and when a page changes, its owner updates the right answer.
 
 ## Side findings
 
