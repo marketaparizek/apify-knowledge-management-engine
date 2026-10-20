@@ -61,7 +61,7 @@ The full rules are in [How to write a page in the Apify wiki](https://app.notion
 🧭 **Team leaders** choose one owner for each key page and help decide which version to keep when there are duplicates. We aim to keep this under an hour per leader across the six weeks.
 ✍️ **Page owners** help check the facts during the cleanup. After that, they get a Slack reminder every 3 months, check the page and react ✅ in Slack. Open questions get answered in the same thread. No need to open Notion for it.
 🤝 **The People team** runs the cleanup, coordinated by Markéta Pařízek. We use the wiki skill to help rewrite pages, merge duplicates, move 1:1s and meeting notes out of General, and set up the review reminders.
-🛠️ **Engineering** keeps GitHub as the source for technical docs. For selected docs that other teams need, we add a short Notion summary with a link to the original. If Engineering wants it, the summary can update on its own when the GitHub file changes.
+🛠️ **Engineering** keeps GitHub as the source for technical docs. For selected docs that other teams need, we add a short Notion summary with a link to the original.
 
 ### 🎯 Why these three teams
 
@@ -72,7 +72,7 @@ The full rules are in [How to write a page in the Apify wiki](https://app.notion
 
 ### 🤖 Where automation helps
 
-We automate review reminders and the status line at the top of each page. Updating summaries from GitHub on their own can come later, if Engineering asks for it.
+We automate review reminders and the status line at the top of each page.
 
 People still make the decisions.
 - The wiki skill prepares a draft. A person reviews it before it's published.
