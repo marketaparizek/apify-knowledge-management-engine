@@ -38,7 +38,7 @@ Let's see if Claude gets those teams' questions right much more often than today
 
 The plan lives in Notion as a page everyone can read: [Notion wiki pilot](https://app.notion.com/p/3feab6e4e9638109ada3c2db2869ff30). Copy below.
 
-**Brief summary.** From 26 October to 4 December 2026, People, Engineering and Customer Success test a few simple changes to make the wiki easier to trust: one owner for each key page, a review reminder every 3 months, and old versions clearly archived. Nothing changes for other teams yet. Sales joins after quarter close. Results go to #general on 4 December 2026.
+**Brief summary.** From 26 October to 4 December 2026, People, Engineering and Customer Success test a few simple changes to make the wiki easier to trust: one owner for each key page, a review reminder every 3 months, and old versions clearly archived. Nothing changes for other teams yet. Sales starts preparing in parallel and joins right after the pilot. Results go to #general on 4 December 2026.
 
 ### 💡 Why we're doing this
 
@@ -68,6 +68,7 @@ The full rules are in [How to write a page in the Apify wiki](https://app.notion
 👥 **People** owns the most-read policies, like leave, benefits and onboarding. We go first with our own pages.
 🛠️ **Engineering** keeps its docs in GitHub. If this works for them, it works anywhere.
 🤝 **Customer Success** has the pages with the highest stakes. Refund policy has 347 views in 90 days and nobody looking after it.
+💼 **Sales** isn't one of the three. End of quarter leaves them no time right now. We start in parallel anyway. The People team prepares their cleanup, so Sales mostly makes yes/no calls, and a 30-minute kickoff with the Sales lead sets a pace that fits. Sales joins right after the pilot.
 
 ### 🤖 Where automation helps
 
@@ -119,7 +120,7 @@ You don't need to be on one of the pilot teams to help.
 > • A Slack reminder for owners every 3 months
 > • Duplicates merged, and 1:1s and meeting notes moved out of General
 >
-> A bit of automation to help with the upkeep. People still decide what's correct and what stays. Sales joins after quarter close.
+> A bit of automation to help with the upkeep. People still decide what's correct and what stays. Sales starts in parallel, at a pace that fits their quarter.
 >
 > :raised_hand: To help us test it, *DM me a question you recently tried to answer in Notion but couldn't.* I'll find you the answer and fix the page it should have been on. Questions from any team are welcome.
 >

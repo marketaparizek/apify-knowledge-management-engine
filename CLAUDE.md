@@ -37,7 +37,7 @@ Debrief: 15 min walkthrough, 15 min live change to the automation, 30 min role p
 - Open questions go to owners in Slack, never Notion comments (on Plus the API can't resolve or delete them).
 - Fallback owner: Markéta Pařízek, People team (Slack: @marketa).
 - Review cycle for core pages: 3 months. Core pages: about 30.
-- Bot runs weekly (Monday). Finds duplicates, stale pages (no edit 12+ months) and working docs, writes them to the Review queue. The Notion admin sets Archive, Keep or Move, the bot acts on it. In the pilot it only scans the pilot teams' sections.
+- Bot runs every working day: the daily run only reads owner replies in Slack, the full run is on Monday. The full run finds duplicates, stale pages (no edit 12+ months) and working docs, writes them to the Review queue. The Notion admin sets Archive, Keep or Move, the bot acts on it. In the pilot it only scans the pilot teams' sections.
 - Reminders: one DM 7 days before the due date, one when overdue. Log goes to private #wiki-bot.
 - **Part 1c runtime: a Claude scheduled task for the pilot, kept simple. Not an Apify Actor.** A code-based scheduler (Google Apps Script or GitHub Actions) gets picked later, after research, for company-wide scale.
 - In the pilot the scheduled task runs under a People team member's account, so DMs come from that person. In production the bot gets its own account ("Wiki bot").
