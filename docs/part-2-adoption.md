@@ -10,7 +10,7 @@ Three Slack replies, the pilot plan and the #general announcement.
 
 Fair, I wouldn't want another set of docs to maintain either. GitHub stays the source, but most people outside Engineering don't know their way around it. We need one place for shared company knowledge, and right now that's Notion.
 
-Let's figure out how to make this work with as little input from your team as possible. The point is to follow how information already flows here, not to rebuild it. A rebuild would die anyway. For the docs other teams need, a short Notion summary links to the GitHub file. Someone in Engineering only picks what gets shared. If you want the summaries to update on their own, we can add that.
+Let's figure out how to make this work with as little input from your team as possible. The point is to follow how information already flows here, not to rebuild it. A rebuild would die anyway. For the docs other teams need, a short Notion summary links to the GitHub file. Someone in Engineering only picks what gets shared.
 
 I think a bit of time setting this up properly could keep the ongoing work minimal. I'll DM you to find 30 minutes for it.
 
