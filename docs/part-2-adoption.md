@@ -32,7 +32,7 @@ I'd keep expectations a bit lower for the first month. We can get a working vers
 
 I'd start with a few teams before opening it up to everyone. We need to understand how information moves around here. Today a basic question gets the right answer about 3 times in 10. If we roll out before we know what fixes that, we spread the same mess faster.
 
-Let's see if Claude gets those teams' questions right much more often than today. In early December, I can show you what changed, and we can decide together where to go next.
+First we need to find out if these changes really make people more productive. Only then would I roll it out more widely.
 
 ## Pilot plan
 
